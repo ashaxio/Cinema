@@ -1,3 +1,5 @@
+import "../MoviePageTemp.css"
+
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FilmDataContext } from "../FilmDataProvider";
@@ -18,7 +20,7 @@ const MoviePage = () => {
       {film ?
         <>
           <h1>{film.title}</h1>
-          <img src={film.poster} alt={`Poster for ${film.title}`} />
+          <img className="movie-poster" src={film.poster} alt={`Poster for ${film.title}`} />
           <p>{`Рейтинг: ${film.rating}`}</p>
           <p>{`Дата випуску: ${film.release_date}`}</p>
 
@@ -37,18 +39,19 @@ const MoviePage = () => {
             <iframe src={film.trailer}
               title="Трейлер"
               allowFullScreen
+              className="movie-trailer"
             ></iframe>
           </div>
 
           <div>
             <h2>Продюсер та акторський склад:</h2>
             <h3>{`Продюсер: ${film.director.name}`}</h3>
-            <img src={film.director.photo} alt={`Picture of ${film.director.name}`} />
+            <img className="poducer-photo" src={film.director.photo} alt={`Picture of ${film.director.name}`} />
 
-            <div>
+            <div className="cast">
               {film.cast.map(actor => (
                 <div key={actor.name}>
-                  <img src={actor.photo} alt={`Picture of ${actor.name}`} />
+                  <img className="actor-photo" src={actor.photo} alt={`Picture of ${actor.name}`} />
                   <h4>{actor.name}</h4>
                   <p>{`Роль: ${actor.role}`}</p>
                 </div>

@@ -1,0 +1,27 @@
+.movie-poster{
+    width: 40%;
+    object-fit: contain;
+}
+.movie-trailer{
+    width: 80%;
+    height: 600px;
+}
+.poducer-photo{
+    width: 20%;
+    object-fit: contain;
+}
+.cast{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 1;
+    justify-content: center;
+    gap: 20px;
+
+    width: 100%;
+    margin-top: 30px;
+}
+.actor-photo{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
