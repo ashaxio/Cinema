@@ -1,6 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
-const Data = () => {
+// Створення контексту
+export const FilmDataContext = createContext();
+
+const FilmDataProvider = ({ children }) => {
+  const [films, setFilms] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetch('/data/FilmsData.json')
       .then(response => response.json())
@@ -27,7 +33,7 @@ const Data = () => {
                   : '/images/default-avatar.png'
               }
             : null;
-          
+
           return {
             ...film,
             poster: `/images/posters/${film.poster}`,
@@ -36,14 +42,22 @@ const Data = () => {
             director: processedDirector
           };
         });
+        console.log("Array movies:", updatedFilmData);
 
-        console.log("Array Movies:", updatedFilmData);
-        window.filmData = updatedFilmData;
+        setFilms(updatedFilmData);
+        setLoading(false);
       })
-      .catch(error => console.error("Error:", error));
+      .catch(error => {
+        console.error("Error:", error);
+        setLoading(false);
+      });
   }, []);
 
-  return null;
+  return (
+    <FilmDataContext.Provider value={{ films, loading }}>
+      {children}
+    </FilmDataContext.Provider>
+  );
 };
 
-export default Data;
+export default FilmDataProvider;
