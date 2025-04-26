@@ -468,19 +468,19 @@
       {
         "name": "Данієл Крейг",
         "role": "Вільям Лі",
-        "photo": "cristina_vee_ladybug.jpg",
+        "photo": "Daniel_Kreig.jpg",
         "folder": "cvir"
       },
       {
         "name": "Джейсон Шварцман",
         "role": "Джо",
-        "photo": "bryce_papenbrook_catnoir.jpg",
+        "photo": "Jason_Shwarcman.jpg",
         "folder": "cvir"
       },
       {
         "name": "Дрю Старкі",
         "role": "Джон Дьюм",
-        "photo": "cristina_vee_ladybug.jpg",
+        "photo": "Dru_Starki.jpg",
         "folder": "cvir"
       }
     ],
@@ -607,31 +607,31 @@
       "name": "Джош Гартнетт",
       "role": "Лукас Реєс",
       "photo": "Dzosh_Hartnet.jpg",
-      "folder": "fight_or_flight"
+      "folder": "fight_or_flights"
     },
     {
       "name": "Чарітра Чандран",
       "role": "Іша",
       "photo": "Charita_Chadran.jpg",
-      "folder": "fight_or_flight"
+      "folder": "fight_or_flights"
     },
     {
       "name": "Джуліан Костов",
       "role": "Аарон Гантер",
       "photo": "Dzulian_Costov.jpg",
-      "folder": "fight_or_flight"
+      "folder": "fight_or_flights"
     },
     {
       "name": "Кеті Сакгофф",
       "role": "Кетрін Брант",
       "photo": "Katty_Sakhoff.jpg",
-      "folder": "fight_or_flight"
+      "folder": "fight_or_flights"
     },
     {
       "name": "Марко Зарор",
       "role": "Шаєнн",
       "photo": "Marko_Zaror.jpg",
-      "folder": "fight_or_flight"
+      "folder": "fight_or_flights"
     }
   ],
     "director": {
