@@ -46,10 +46,7 @@
         "folder": "minecraft"
       }
     ],
-    "director": {
-      "name": "Джаред Гесс",
-      "photo": "Dzared_Gass.jpg"
-    }
+    "director": { "name": "Джаред Гесс", "photo": "Dzared_Gass.jpg" }
   },
   {
     "id": 2,
@@ -61,77 +58,74 @@
     "release_date": "2025-12-15",
     "trailer": "https://www.youtube.com/watch?v=diZaFGEdv20",
     "cast": [
-    {
-      "name": "Сем Вортінгтон",
-      "role": "Джейк Саллі",
-      "photo": "Sam.worthington.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Зої Салдана",
-      "role": "Нейтірі",
-      "photo": "Zoe_Saldana_(28584925641)_(cropped_2).jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Сіґурні Вівер",
-      "role": "Кірі (прийомна донька Джейка і Нейтірі)",
-      "photo": "Sigourney_Weaver-64139_(cropped).jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Стівен Ленг",
-      "role": "полковник Майлз Куорітч",
-      "photo": "StephenLangSept10TIFF.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Кейт Вінслет",
-      "role": "Ронал",
-      "photo": "Kate_Winslet_face.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Кліфф Кертіс",
-      "role": "Тоноварі",
-      "photo": "Cliff_Curtis.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Сі Сі Ейч Паундер",
-      "role": "Мо'ат",
-      "photo": "500px-C._C._H._Pounder.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Іді Фалко",
-      "role": "генерал Ардмор",
-      "photo": "Edie_Falco_2010.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Джемейн Клемент",
-      "role": "доктор Ян Гарвін",
-      "photo": "Black_Sea,_Golden_Ladder_album_preview_party_DM1_3180-2_-_Jemaine_Clement.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Британ Далтон",
-      "role": "Ло'ак (син Джейка Саллі та Нейтірі)",
-      "photo": "Britain_Dalton.jpg",
-      "folder": "avatar3"
-    },
-    {
-      "name": "Джованні Рібізі",
-      "role": "Паркер Селфридж",
-      "photo": "GiovanniRibisiDec09.jpg",
-      "folder": "avatar3"
-    }
-  ],
-  "director": {
-      "name": "Джеймс Камерон",
-      "photo": "James_Cameron.jpg"
-    }
+      {
+        "name": "Сем Вортінгтон",
+        "role": "Джейк Саллі",
+        "photo": "Sam.worthington.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Зої Салдана",
+        "role": "Нейтірі",
+        "photo": "Zoe_Saldana_(28584925641)_(cropped_2).jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Сіґурні Вівер",
+        "role": "Кірі (прийомна донька Джейка і Нейтірі)",
+        "photo": "Sigourney_Weaver-64139_(cropped).jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Стівен Ленг",
+        "role": "полковник Майлз Куорітч",
+        "photo": "StephenLangSept10TIFF.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Кейт Вінслет",
+        "role": "Ронал",
+        "photo": "Kate_Winslet_face.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Кліфф Кертіс",
+        "role": "Тоноварі",
+        "photo": "Cliff_Curtis.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Сі Сі Ейч Паундер",
+        "role": "Мо'ат",
+        "photo": "500px-C._C._H._Pounder.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Іді Фалко",
+        "role": "генерал Ардмор",
+        "photo": "Edie_Falco_2010.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Джемейн Клемент",
+        "role": "доктор Ян Гарвін",
+        "photo": "Black_Sea,_Golden_Ladder_album_preview_party_DM1_3180-2_-_Jemaine_Clement.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Британ Далтон",
+        "role": "Ло'ак (син Джейка Саллі та Нейтірі)",
+        "photo": "Britain_Dalton.jpg",
+        "folder": "avatar3"
+      },
+      {
+        "name": "Джованні Рібізі",
+        "role": "Паркер Селфридж",
+        "photo": "GiovanniRibisiDec09.jpg",
+        "folder": "avatar3"
+      }
+    ],
+    "director": { "name": "Джеймс Камерон", "photo": "James_Cameron.jpg" }
   },
   {
     "id": 3,
@@ -142,120 +136,117 @@
     "rating": 7,
     "release_date": "2023-05-19",
     "trailer": "https://youtube.com/watch?v=fast11trailer",
-     "cast": [
-    {
-      "name": "Він Дізель",
-      "role": "Доміник Торетто",
-      "photo": "vin_dizel.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Джейсон Стейтем",
-      "role": "Декард Шоу",
-      "photo": "Jason_Statham_2018.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Мішель Родрігес",
-      "role": "Летті Ортіс",
-      "photo": "Michelle_Rodriguez_2010_cropped.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Тайріз Гібсон",
-      "role": "Роман Пірс",
-      "photo": "TyreseGibsonDec08.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Лудакріс",
-      "role": "Тедж Паркер",
-      "photo": "500px-Ludacris_2008.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Джон Сіна",
-      "role": "Джейкоб Торетто",
-      "photo": "John_Cena_on_the_Impaulsive_podcast,_2024.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Джордана Брюстер",
-      "role": "Міа Торетто",
-      "photo": "960px-Jordana_Brewster_at_PaleyFest_2013_2.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Джейсон Момоа",
-      "role": "Данте Реєс",
-      "photo": "Jason_Momoa_Supercon_2014.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Наталі Еммануель",
-      "role": "Рамзі",
-      "photo": "Nathalie_Emmanuel_by_Gage_Skidmore.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Сон Кан",
-      "role": "Хан Соуль-О",
-      "photo": "Sung_Kang_(Sundance_2007).jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Скотт Іствуд",
-      "role": "Ніхто Молодший",
-      "photo": "Scott_Eastwood_by_Gage_Skidmore.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Майкл Рукер",
-      "role": "Бадді",
-      "photo": "Michael_Rooker_SDCC_2013_Guardians.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Гелен Міррен",
-      "role": "Магдалена Шоу",
-      "photo": "Helen_Mirren-2208.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Шарліз Терон",
-      "role": "Сайфер",
-      "photo": "500px-Charlize-theron-IMG_6045.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Cardi B",
-      "role": "Лейса",
-      "photo": "Cardi_B_2021_02.jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Алан Рітчсон",
-      "role": "Еймс",
-      "photo": "960px-Lazer_Team_premiere_-_Alan_Ritchson_(27161983270)_(cropped).jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Даніела Мельхіор",
-      "role": "Ізабель Невес",
-      "photo": "Daniela_Melchior_-_2021_(51654741921)_(cropped).jpg",
-      "folder": "forsah_X"
-    },
-    {
-      "name": "Брі Ларсон",
-      "role": "Тесс",
-      "photo": "Captain_Marvel_trailer_at_the_National_Air_and_Space_Museum_4_(cropped).jpg",
-      "folder": "forsah_X"
-    }
-  ],
-  "director": {
-      "name": "Луї Летер'є",
-      "photo": "Louis_Leterrier.jpg"
-    }
+    "cast": [
+      {
+        "name": "Він Дізель",
+        "role": "Доміник Торетто",
+        "photo": "vin_dizel.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Джейсон Стейтем",
+        "role": "Декард Шоу",
+        "photo": "Jason_Statham_2018.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Мішель Родрігес",
+        "role": "Летті Ортіс",
+        "photo": "Michelle_Rodriguez_2010_cropped.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Тайріз Гібсон",
+        "role": "Роман Пірс",
+        "photo": "TyreseGibsonDec08.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Лудакріс",
+        "role": "Тедж Паркер",
+        "photo": "500px-Ludacris_2008.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Джон Сіна",
+        "role": "Джейкоб Торетто",
+        "photo": "John_Cena_on_the_Impaulsive_podcast,_2024.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Джордана Брюстер",
+        "role": "Міа Торетто",
+        "photo": "960px-Jordana_Brewster_at_PaleyFest_2013_2.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Джейсон Момоа",
+        "role": "Данте Реєс",
+        "photo": "Jason_Momoa_Supercon_2014.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Наталі Еммануель",
+        "role": "Рамзі",
+        "photo": "Nathalie_Emmanuel_by_Gage_Skidmore.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Сон Кан",
+        "role": "Хан Соуль-О",
+        "photo": "Sung_Kang_(Sundance_2007).jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Скотт Іствуд",
+        "role": "Ніхто Молодший",
+        "photo": "Scott_Eastwood_by_Gage_Skidmore.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Майкл Рукер",
+        "role": "Бадді",
+        "photo": "Michael_Rooker_SDCC_2013_Guardians.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Гелен Міррен",
+        "role": "Магдалена Шоу",
+        "photo": "Helen_Mirren-2208.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Шарліз Терон",
+        "role": "Сайфер",
+        "photo": "500px-Charlize-theron-IMG_6045.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Cardi B",
+        "role": "Лейса",
+        "photo": "Cardi_B_2021_02.jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Алан Рітчсон",
+        "role": "Еймс",
+        "photo": "960px-Lazer_Team_premiere_-_Alan_Ritchson_(27161983270)_(cropped).jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Даніела Мельхіор",
+        "role": "Ізабель Невес",
+        "photo": "Daniela_Melchior_-_2021_(51654741921)_(cropped).jpg",
+        "folder": "forsah_X"
+      },
+      {
+        "name": "Брі Ларсон",
+        "role": "Тесс",
+        "photo": "Captain_Marvel_trailer_at_the_National_Air_and_Space_Museum_4_(cropped).jpg",
+        "folder": "forsah_X"
+      }
+    ],
+    "director": { "name": "Луї Летер'є", "photo": "Louis_Leterrier.jpg" }
   },
   {
     "id": 4,
@@ -267,59 +258,56 @@
     "release_date": "2025-04-17",
     "trailer": "https://www.youtube.com/watch?v=noA-PHYs6fk",
     "cast": [
-    {
-      "name": "Майкл Б. Джордан",
-      "role": "Смоук / Стек",
-      "photo": "Michael_Jordan.jpg",
-      "folder": "sinners"
-    },
-    {
-      "name": "Гейлі Стайнфельд",
-      "role": "Мері",
-      "photo": "Haily_Stanfild.jpg",
-      "folder": "sinners"
-    },
-    {
-      "name": "Джек О'Коннелл",
-      "role": "Реммік",
-      "photo": "Jack_Connel.jpg",
-      "folder": "sinners"
-    },
-    {
-      "name": "Вунмі Мосаку",
-      "role": "Енні",
-      "photo": "Womni_Mosaku.jpg",
-      "folder": "sinners"
-    },
-    {
-      "name": "Джеймі Ловсон",
-      "role": "Перлін",
-      "photo": "Jamy_Lobson.jpg",
-      "folder": "sinners"
-    },
-    {
-      "name": "Делрой Ліндо",
-      "role": "Дельта Слім",
-      "photo": "Delroy_Lindo.jpg",
-      "folder": "sinners"
-    },
-    {
-      "name": "Омар Бенсон Міллер",
-      "role": "Корнбред",
-      "photo": "Omar_Benson_Liver.jpg",
-      "folder": "sinners"
-    },
-    {
-      "name": "Лі Юн Лі",
-      "role": "Грейс Чоу",
-      "photo": "Li_Chun_Li.jpg",
-      "folder": "sinners"
-    }
-  ],
-  "director": {
-      "name": "Раян Куглер",
-      "photo": "rayan_kuhler.jpeg"
-    }
+      {
+        "name": "Майкл Б. Джордан",
+        "role": "Смоук / Стек",
+        "photo": "Michael_Jordan.jpg",
+        "folder": "sinners"
+      },
+      {
+        "name": "Гейлі Стайнфельд",
+        "role": "Мері",
+        "photo": "Haily_Stanfild.jpg",
+        "folder": "sinners"
+      },
+      {
+        "name": "Джек О'Коннелл",
+        "role": "Реммік",
+        "photo": "Jack_Connel.jpg",
+        "folder": "sinners"
+      },
+      {
+        "name": "Вунмі Мосаку",
+        "role": "Енні",
+        "photo": "Womni_Mosaku.jpg",
+        "folder": "sinners"
+      },
+      {
+        "name": "Джеймі Ловсон",
+        "role": "Перлін",
+        "photo": "Jamy_Lobson.jpg",
+        "folder": "sinners"
+      },
+      {
+        "name": "Делрой Ліндо",
+        "role": "Дельта Слім",
+        "photo": "Delroy_Lindo.jpg",
+        "folder": "sinners"
+      },
+      {
+        "name": "Омар Бенсон Міллер",
+        "role": "Корнбред",
+        "photo": "Omar_Benson_Liver.jpg",
+        "folder": "sinners"
+      },
+      {
+        "name": "Лі Юн Лі",
+        "role": "Грейс Чоу",
+        "photo": "Li_Chun_Li.jpg",
+        "folder": "sinners"
+      }
+    ],
+    "director": { "name": "Раян Куглер", "photo": "rayan_kuhler.jpeg" }
   },
   {
     "id": 5,
@@ -331,41 +319,38 @@
     "release_date": "2025-03-20",
     "trailer": "https://www.youtube.com/watch?v=6eQ1NW58lac",
     "cast": [
-    {
-      "name": "Рейчел Зеглер",
-      "role": "Білосніжка",
-      "photo": "Rachel_Zehler.jpg",
-      "folder": "snow_white"
-    },
-    {
-      "name": "Галь Гадот",
-      "role": "Зла королева",
-      "photo": "Gal_Gadot.jpg",
-      "folder": "snow_white"
-    },
-    {
-      "name": "Ендрю Бернап",
-      "role": "Джонатан",
-      "photo": "endru_bernap.jpg",
-      "folder": "snow_white"
-    },
-    {
-      "name": "Ансу Кабіа",
-      "role": "Мисливець",
-      "photo": "Ansu_Cabia.jpg",
-      "folder": "snow_white"
-    },
-    {
-      "name": "Мартін Клебба",
-      "role": "Буркотун",
-      "photo": "Martin_Clebe.jpg",
-      "folder": "snow_white"
-    }
-  ],
-    "director": {
-      "name": "Марк Вебб",
-      "photo": "mark_vebb.jpg"
-    }
+      {
+        "name": "Рейчел Зеглер",
+        "role": "Білосніжка",
+        "photo": "Rachel_Zehler.jpg",
+        "folder": "snow_white"
+      },
+      {
+        "name": "Галь Гадот",
+        "role": "Зла королева",
+        "photo": "Gal_Gadot.jpg",
+        "folder": "snow_white"
+      },
+      {
+        "name": "Ендрю Бернап",
+        "role": "Джонатан",
+        "photo": "endru_bernap.jpg",
+        "folder": "snow_white"
+      },
+      {
+        "name": "Ансу Кабіа",
+        "role": "Мисливець",
+        "photo": "Ansu_Cabia.jpg",
+        "folder": "snow_white"
+      },
+      {
+        "name": "Мартін Клебба",
+        "role": "Буркотун",
+        "photo": "Martin_Clebe.jpg",
+        "folder": "snow_white"
+      }
+    ],
+    "director": { "name": "Марк Вебб", "photo": "mark_vebb.jpg" }
   },
   {
     "id": 6,
@@ -377,79 +362,79 @@
     "release_date": "2025-04-25",
     "trailer": "https://www.youtube.com/watch?v=x2MQK04Ofq4",
     "cast": [
-    {
-      "name": "Том Круз",
-      "role": "Ітан Хант",
-      "photo": "Tom_Cruz.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Ребекка Фергюсон",
-      "role": "Ільза Фауст",
-      "photo": "Rebecca_Furheson.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Вінг Реймс",
-      "role": "Лютер Стікелл",
-      "photo": "Ving_Rames.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Генрі Черні",
-      "role": "Євген Кітрідж",
-      "photo": "Henry_Czerny.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Саймон Пегг",
-      "role": "Бенджі Данн",
-      "photo": "Saimon_Pehh.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Гейлі Етвел",
-      "role": "Ґрейс",
-      "photo": "Haily_Etvel.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Ванесса Кірбі",
-      "role": "Аланна Міцополіс",
-      "photo": "Vannessa_Cirbi.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Шей Віґем",
-      "role": "Девід Рамсфельд",
-      "photo": "Shea_Whigham.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Голт Маккелені",
-      "role": "Бернштейн, міністр оборони",
-      "photo": "Holt_Maccelni.jpeg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Нік Офферман",
-      "role": "Сідні",
-      "photo": "Nick_Offerman.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Пом Клементьєфф",
-      "role": "Періс",
-      "photo": "Pom_Klementeroff.jpg",
-      "folder": "mission_impossible"
-    },
-    {
-      "name": "Есай Моралес",
-      "role": "Габріель",
-      "photo": "Esay_Morales.jpg",
-      "folder": "mission_impossible"
-    }
-  ],
+      {
+        "name": "Том Круз",
+        "role": "Ітан Хант",
+        "photo": "Tom_Cruz.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Ребекка Фергюсон",
+        "role": "Ільза Фауст",
+        "photo": "Rebecca_Furheson.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Вінг Реймс",
+        "role": "Лютер Стікелл",
+        "photo": "Ving_Rames.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Генрі Черні",
+        "role": "Євген Кітрідж",
+        "photo": "Henry_Czerny.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Саймон Пегг",
+        "role": "Бенджі Данн",
+        "photo": "Saimon_Pehh.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Гейлі Етвел",
+        "role": "Ґрейс",
+        "photo": "Haily_Etvel.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Ванесса Кірбі",
+        "role": "Аланна Міцополіс",
+        "photo": "Vannessa_Cirbi.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Шей Віґем",
+        "role": "Девід Рамсфельд",
+        "photo": "Shea_Whigham.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Голт Маккелені",
+        "role": "Бернштейн, міністр оборони",
+        "photo": "Holt_Maccelni.jpeg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Нік Офферман",
+        "role": "Сідні",
+        "photo": "Nick_Offerman.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Пом Клементьєфф",
+        "role": "Періс",
+        "photo": "Pom_Klementeroff.jpg",
+        "folder": "mission_impossible"
+      },
+      {
+        "name": "Есай Моралес",
+        "role": "Габріель",
+        "photo": "Esay_Morales.jpg",
+        "folder": "mission_impossible"
+      }
+    ],
     "director": {
       "name": "Крістофер Маккворрі",
       "photo": "Cristopher_Maccworry.jpg"
@@ -484,10 +469,7 @@
         "folder": "cvir"
       }
     ],
-    "director": {
-      "name": "Лука Гуаданьїно",
-      "photo": "Luka_Guandaino.jpg"
-    }
+    "director": { "name": "Лука Гуаданьїно", "photo": "Luka_Guandaino.jpg" }
   },
   {
     "id": 8,
@@ -499,53 +481,50 @@
     "release_date": "2025-04-10",
     "trailer": "https://www.youtube.com/watch?v=71-8CIA9G5U",
     "cast": [
-    {
-      "name": "Рамі Малек",
-      "role": "Чарльз Геллер",
-      "photo": "Rami_Malek.jpg",
-      "folder": "the_amateur"
-    },
-    {
-      "name": "Рейчел Броснахен",
-      "role": "Сара",
-      "photo": "Rachel_Brosnahen.jpg",
-      "folder": "the_amateur"
-    },
-    {
-      "name": "Лоуренс Фішберн",
-      "role": "Хендерсон",
-      "photo": "Lorens_Fishbern.jpg",
-      "folder": "the_amateur"
-    },
-    {
-      "name": "Катріона Балфі",
-      "role": "Інквілін Девіс",
-      "photo": "Catriona_Belphi.jpg",
-      "folder": "the_amateur"
-    },
-    {
-      "name": "Адріан Мартінес",
-      "role": "Карлос",
-      "photo": "Adrian_Martines.jpg",
-      "folder": "the_amateur"
-    },
-    {
-      "name": "Голт Маккеллані",
-      "role": "Заступник директора ЦРУ Мур",
-      "photo": "Holt_Makkeleni.jpg",
-      "folder": "the_amateur"
-    },
-    {
-      "name": "Джуліанна Ніколсон",
-      "role": "Саманта О'Браєн",
-      "photo": "Dzuliana_Nikolsona.jpg",
-      "folder": "the_amateur"
-    }
-  ],
-    "director": {
-      "name": "Джеймс Хоуз",
-      "photo": "James_Houz.jpg"
-    }
+      {
+        "name": "Рамі Малек",
+        "role": "Чарльз Геллер",
+        "photo": "Rami_Malek.jpg",
+        "folder": "the_amateur"
+      },
+      {
+        "name": "Рейчел Броснахен",
+        "role": "Сара",
+        "photo": "Rachel_Brosnahen.jpg",
+        "folder": "the_amateur"
+      },
+      {
+        "name": "Лоуренс Фішберн",
+        "role": "Хендерсон",
+        "photo": "Lorens_Fishbern.jpg",
+        "folder": "the_amateur"
+      },
+      {
+        "name": "Катріона Балфі",
+        "role": "Інквілін Девіс",
+        "photo": "Catriona_Belphi.jpg",
+        "folder": "the_amateur"
+      },
+      {
+        "name": "Адріан Мартінес",
+        "role": "Карлос",
+        "photo": "Adrian_Martines.jpg",
+        "folder": "the_amateur"
+      },
+      {
+        "name": "Голт Маккеллані",
+        "role": "Заступник директора ЦРУ Мур",
+        "photo": "Holt_Makkeleni.jpg",
+        "folder": "the_amateur"
+      },
+      {
+        "name": "Джуліанна Ніколсон",
+        "role": "Саманта О'Браєн",
+        "photo": "Dzuliana_Nikolsona.jpg",
+        "folder": "the_amateur"
+      }
+    ],
+    "director": { "name": "Джеймс Хоуз", "photo": "James_Houz.jpg" }
   },
   {
     "id": 9,
@@ -557,41 +536,38 @@
     "release_date": "2025-04-17",
     "trailer": "https://www.youtube.com/watch?v=rXNSCjTKyWg",
     "cast": [
-    {
-      "name": "Білл Скашгорд",
-      "role": "Едді Барріш",
-      "photo": "Bill_Skashord.jpg",
-      "folder": "locked"
-    },
-    {
-      "name": "Ентоні Гопкінс",
-      "role": "Вільям",
-      "photo": "Entoni_Hopkins.jpg",
-      "folder": "locked"
-    },
-    {
-      "name": "Майкл Еклунд",
-      "role": "Карл",
-      "photo": "Michael_Eklande.jpg",
-      "folder": "locked"
-    },
-    {
-      "name": "Ешлі Картрай",
-      "role": "Сара Барріш",
-      "photo": "Eshly_Cartrait.jpg",
-      "folder": "locked"
-    },
-    {
-      "name": "Навід Чаркхі",
-      "role": "Баттер",
-      "photo": "Navid_Charhiki.jpg",
-      "folder": "locked"
-    }
-  ],
-    "director": {
-      "name": "Девід Яровескі",
-      "photo": "David_Yaroveski.jpg"
-    }
+      {
+        "name": "Білл Скашгорд",
+        "role": "Едді Барріш",
+        "photo": "Bill_Skashord.jpg",
+        "folder": "locked"
+      },
+      {
+        "name": "Ентоні Гопкінс",
+        "role": "Вільям",
+        "photo": "Entoni_Hopkins.jpg",
+        "folder": "locked"
+      },
+      {
+        "name": "Майкл Еклунд",
+        "role": "Карл",
+        "photo": "Michael_Eklande.jpg",
+        "folder": "locked"
+      },
+      {
+        "name": "Ешлі Картрай",
+        "role": "Сара Барріш",
+        "photo": "Eshly_Cartrait.jpg",
+        "folder": "locked"
+      },
+      {
+        "name": "Навід Чаркхі",
+        "role": "Баттер",
+        "photo": "Navid_Charhiki.jpg",
+        "folder": "locked"
+      }
+    ],
+    "director": { "name": "Девід Яровескі", "photo": "David_Yaroveski.jpg" }
   },
   {
     "id": 10,
@@ -603,40 +579,37 @@
     "release_date": "2025-04-17",
     "trailer": "https://www.youtube.com/watch?v=paYXai9mckE",
     "cast": [
-    {
-      "name": "Джош Гартнетт",
-      "role": "Лукас Реєс",
-      "photo": "Dzosh_Hartnet.jpg",
-      "folder": "fight_or_flights"
-    },
-    {
-      "name": "Чарітра Чандран",
-      "role": "Іша",
-      "photo": "Charita_Chadran.jpg",
-      "folder": "fight_or_flights"
-    },
-    {
-      "name": "Джуліан Костов",
-      "role": "Аарон Гантер",
-      "photo": "Dzulian_Costov.jpg",
-      "folder": "fight_or_flights"
-    },
-    {
-      "name": "Кеті Сакгофф",
-      "role": "Кетрін Брант",
-      "photo": "Katty_Sakhoff.jpg",
-      "folder": "fight_or_flights"
-    },
-    {
-      "name": "Марко Зарор",
-      "role": "Шаєнн",
-      "photo": "Marko_Zaror.jpg",
-      "folder": "fight_or_flights"
-    }
-  ],
-    "director": {
-      "name": "Джеймс Медіґан",
-      "photo": "James_Medigan.jpg"
-    }
+      {
+        "name": "Джош Гартнетт",
+        "role": "Лукас Реєс",
+        "photo": "Dzosh_Hartnet.jpg",
+        "folder": "fight_or_flights"
+      },
+      {
+        "name": "Чарітра Чандран",
+        "role": "Іша",
+        "photo": "Charita_Chadran.jpg",
+        "folder": "fight_or_flights"
+      },
+      {
+        "name": "Джуліан Костов",
+        "role": "Аарон Гантер",
+        "photo": "Dzulian_Costov.jpg",
+        "folder": "fight_or_flights"
+      },
+      {
+        "name": "Кеті Сакгофф",
+        "role": "Кетрін Брант",
+        "photo": "Katty_Sakhoff.jpg",
+        "folder": "fight_or_flights"
+      },
+      {
+        "name": "Марко Зарор",
+        "role": "Шаєнн",
+        "photo": "Marko_Zaror.jpg",
+        "folder": "fight_or_flights"
+      }
+    ],
+    "director": { "name": "Джеймс Медіґан", "photo": "James_Medigan.jpg" }
   }
 ]

@@ -25,3 +25,10 @@
     height: 150px;
     object-fit: contain;
 }
+.user-rating{
+    margin-bottom: 20px;
+}
+.user-rating > *{
+    margin: 0;
+    padding: 0;
+}

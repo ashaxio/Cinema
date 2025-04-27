@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-// Створення контексту
+// React context creation
 export const FilmDataContext = createContext();
 
 const FilmDataProvider = ({ children }) => {
@@ -9,29 +9,30 @@ const FilmDataProvider = ({ children }) => {
 
   useEffect(() => {
     fetch('/data/FilmsData.json')
-      .then(response => response.json())
-      .then(filmData => {
-        const updatedFilmData = filmData.map(film => {
+      .then((response) => response.json())
+      .then((filmData) => {
+        const updatedFilmData = filmData.map((film) => {
           const processedTrailer = film.trailer
             ? film.trailer
-              .replace(/(watch\?v=|youtu.be\/)/, 'embed/')
-              .replace(/\/embed\/embed/, '/embed')
+                .replace(/(watch\?v=|youtu.be\/)/, 'embed/')
+                .replace(/\/embed\/embed/, '/embed')
             : null;
 
-          const processedCast = film.cast?.map(actor => ({
-            ...actor,
-            photo: actor.photo
-              ? `/images/cast/${actor.folder}/${actor.photo}`
-              : '/images/default-avatar.png'
-          })) || [];
+          const processedCast =
+            film.cast?.map((actor) => ({
+              ...actor,
+              photo: actor.photo
+                ? `/images/cast/${actor.folder}/${actor.photo}`
+                : '/images/default-avatar.png',
+            })) || [];
 
           const processedDirector = film.director
             ? {
-              ...film.director,
-              photo: film.director.photo
-                ? `/images/directors/${film.director.photo}`
-                : '/images/default-avatar.png'
-            }
+                ...film.director,
+                photo: film.director.photo
+                  ? `/images/directors/${film.director.photo}`
+                  : '/images/default-avatar.png',
+              }
             : null;
 
           return {
@@ -39,16 +40,16 @@ const FilmDataProvider = ({ children }) => {
             poster: `/images/posters/${film.poster}`,
             trailer: processedTrailer,
             cast: processedCast,
-            director: processedDirector
+            director: processedDirector,
           };
         });
-        console.log("Array movies:", updatedFilmData);
+        console.log('Array movies:', updatedFilmData);
 
         setFilms(updatedFilmData);
         setLoading(false);
       })
-      .catch(error => {
-        console.error("Error:", error);
+      .catch((error) => {
+        console.error('Error:', error);
         setLoading(false);
       });
   }, []);
