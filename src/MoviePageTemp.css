@@ -1,34 +1,93 @@
-.movie-poster{
-    width: 40%;
-    object-fit: contain;
+.movie-page-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
 }
-.movie-trailer{
-    width: 80%;
-    height: 600px;
-}
-.poducer-photo{
-    width: 20%;
-    object-fit: contain;
-}
-.cast{
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 1;
-    justify-content: center;
-    gap: 20px;
 
-    width: 100%;
-    margin-top: 30px;
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
-.actor-photo{
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
+
+.movie-poster {
+  max-width: 40%;
+  height: auto;
+  object-fit: contain;
 }
-.user-rating{
-    margin-bottom: 20px;
+
+.movie-trailer {
+  width: 1240px;
+  height: 600px;
+  max-width: 100%;
 }
-.user-rating > *{
-    margin: 0;
-    padding: 0;
+
+.producer-photo {
+  width: 20%;
+  max-width: 200px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.cast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.actor-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.actor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+  gap: 8px;
+}
+
+.actor-info {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.actor-info h4 {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+.actor-info p {
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0;
+  color: #666;
+}
+
+.actor-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-rating {
+  margin-bottom: 20px;
+}
+
+.user-rating > * {
+  margin: 0;
+  padding: 0;
 }
