@@ -45,11 +45,9 @@ const MoviePage = () => {
 
   return (
     <div className="movie-page-container">
-      {" "}
       {movie ? (
         <>
           <div className="movie-content">
-            {" "}
             <h1>{movie.title}</h1>
             <img
               className="movie-poster"
@@ -90,14 +88,12 @@ const MoviePage = () => {
               <div className="cast">
                 {movie.cast.map((actor) => (
                   <div key={actor.name} className="actor-card">
-                    {" "}
                     <img
                       className="actor-photo"
                       src={actor.photo}
                       alt={`Picture of ${actor.name}`}
                     />
                     <div className="actor-info">
-                      {" "}
                       <h4>{actor.name}</h4>
                       <p>{`Роль: ${actor.role}`}</p>
                     </div>

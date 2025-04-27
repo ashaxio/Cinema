@@ -30,6 +30,7 @@
   max-width: 200px;
   object-fit: contain;
   margin: 0 auto;
+  border-radius: 15%;
 }
 
 .cast {
@@ -42,10 +43,10 @@
 }
 
 .actor-photo {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 15%;
 }
 
 .actor-card {
@@ -76,13 +77,6 @@
   color: #666;
 }
 
-.actor-photo {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 .user-rating {
   margin-bottom: 20px;
 }
@@ -90,4 +84,11 @@
 .user-rating > * {
   margin: 0;
   padding: 0;
+}
+
+#rating {
+  background-color: #192233;
+  border: 1px solid #ddd;
+  padding: 2px;
+  border-radius: 4px;
 }
