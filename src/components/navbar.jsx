@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { NavLink } from "react-router-dom"; 
 import logo from "../assets/logo.svg";
 import home from "../assets/home.svg";
 import favorite from "../assets/favorite.svg";
@@ -7,9 +7,28 @@ import search from "../assets/search.svg";
 import profile from "../assets/profile.svg";
 import sunIcon from "../assets/light.svg";
 import moonIcon from "../assets/dark-white.svg";
+import { FilmDataContext } from "../FilmDataProvider";
 
 const Navbar = ({ userId, children }) => {
+  const { films } = useContext(FilmDataContext);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredMovies, setFilteredMovies] = useState([]);
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  useEffect(() => {
+    if (searchQuery) {
+      const results = films.filter((movie) =>
+        movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredMovies(results);
+    } else {
+      setFilteredMovies([]);
+    }
+  }, [searchQuery, films]);
 
   return (
     <div className="flex h-screen w-screen">
@@ -100,6 +119,8 @@ const Navbar = ({ userId, children }) => {
               type="text"
               placeholder="Search movies..."
               className="w-full py-2 px-4 pl-10 rounded-lg bg-[#192231] text-white focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+              value={searchQuery}
+              onChange={handleSearchChange}
             />
             <svg
               className="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
@@ -141,6 +162,30 @@ const Navbar = ({ userId, children }) => {
             )}
           </div>
         </div>
+
+        {filteredMovies.length > 0 && (
+          <div 
+            className="absolute bg-white text-black mt-2 rounded-lg z-10 max-h-60 overflow-auto 
+            top-[70px] left-[149px] w-[350px] rounded-[10px]"
+          >
+            <ul className="list-none p-2">
+              {filteredMovies.map((movie) => (
+                <li
+                  key={movie.id}
+                  className="cursor-pointer py-2 px-4 hover:bg-violet-100 hover:rounded-lg flex items-center"
+                  onClick={() => window.location.href = `/movies/${movie.id}`}
+                >
+                  <img
+                    src={movie.poster}
+                    alt={movie.title}
+                    className="w-12 h-12 object-cover inline-block mr-4"
+                  />
+                  <span>{movie.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className="p-6 flex-1">{children}</div>
       </div>

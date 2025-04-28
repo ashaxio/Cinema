@@ -1,7 +1,6 @@
 import "../MoviePageTemp.css";
-
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Added useNavigate for programmatic navigation
 import { FilmDataContext } from "../FilmDataProvider";
 
 const formatMovieRating = (movieRating, userRating) => {
@@ -15,6 +14,7 @@ const formatMovieRating = (movieRating, userRating) => {
 };
 
 const MoviePage = () => {
+  const navigate = useNavigate(); // useNavigate hook for navigation
   const movieId = useParams().id;
   const { films, loading } = useContext(FilmDataContext);
   const [movie, setMovie] = useState(null);
@@ -47,6 +47,17 @@ const MoviePage = () => {
     <div className="movie-page-container">
       {movie ? (
         <>
+          {/* Button for navigating to Home */}
+          <div className="relative">
+            <button
+              onClick={() => navigate("/")} // Navigate to the Home page
+              className="absolute top-4 left-4 z-10 px-4 py-2 rounded-lg bg-[#5031D6] hover:bg-[#6a4ff7] transition-colors"
+            >
+              Go to Home
+            </button>
+          </div>
+
+          {/* Movie content */}
           <div className="movie-content">
             <h1>{movie.title}</h1>
             <img
@@ -54,10 +65,7 @@ const MoviePage = () => {
               src={movie.poster}
               alt={`Poster for ${movie.title}`}
             />
-            <p>{`Рейтинг: ${formatMovieRating(
-              movie.rating,
-              movie.userRating
-            )}`}</p>
+            <p>{`Рейтинг: ${formatMovieRating(movie.rating, movie.userRating)}`}</p>
             <p>{`Дата випуску: ${movie.release_date}`}</p>
             <div>
               <h2>Опис: </h2>
