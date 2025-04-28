@@ -1,13 +1,13 @@
 import Navbar from "../components/navbar";
 
-const FavoritesPage = () => {
+const ProfilePage = () => {
   return (
     <>
       <Navbar userId="123">
-        <h1>Favorite Page!</h1>
+        <h1>My Profile!</h1>
       </Navbar>
     </>
   );
 };
 
-export default FavoritesPage;
+export default ProfilePage;

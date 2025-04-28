@@ -1,13 +1,13 @@
 import Navbar from "../components/navbar";
 
-const FavoritesPage = () => {
+const SearchPage = () => {
   return (
     <>
       <Navbar userId="123">
-        <h1>Favorite Page!</h1>
+        <h1>Search Page!</h1>
       </Navbar>
     </>
   );
 };
 
-export default FavoritesPage;
+export default SearchPage;

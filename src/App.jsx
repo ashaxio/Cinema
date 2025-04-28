@@ -7,6 +7,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminMovies from "./pages/AdminMovies";
 import NotFound from "./pages/NotFound";
 import FilmDataProvider from "./FilmDataProvider.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/movies" element={<AdminMovies />} />
+          <Route path="/search" element={<SearchPage />}></Route>
+          <Route path="/profile/:userId" element={<ProfilePage />}></Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </FilmDataProvider>

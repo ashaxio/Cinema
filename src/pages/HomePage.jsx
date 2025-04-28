@@ -1,7 +1,11 @@
+import Navbar from "../components/navbar";
+
 const HomePage = () => {
   return (
     <>
-      <h1>Home Page!</h1>
+      <Navbar userId="">
+        <h1>Home Page!</h1>
+      </Navbar>
     </>
   );
 };
