@@ -4,11 +4,11 @@ import logo from "../assets/logo.svg";
 import home from "../assets/home.svg";
 import favorite from "../assets/favorite.svg";
 import search from "../assets/search.svg";
-import noName from "../assets/no-name.svg";
+import profile from "../assets/profile.svg";
 import sunIcon from "../assets/light.svg";
-import moonIcon from "../assets/dark-white.svg"; // Change path to correct icon after implementing dark/light theme
+import moonIcon from "../assets/dark-white.svg";
 
-const Navbar = ({ children }) => {
+const Navbar = ({ userId, children }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   return (
@@ -35,6 +35,7 @@ const Navbar = ({ children }) => {
               />
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="/search"
@@ -51,38 +52,44 @@ const Navbar = ({ children }) => {
               />
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/noname"
-              className={({ isActive }) =>
-                `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                  isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
-                }`
-              }
-            >
-              <img
-                src={noName}
-                alt="No Name"
-                className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
-              />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/favorites"
-              className={({ isActive }) =>
-                `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                  isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
-                }`
-              }
-            >
-              <img
-                src={favorite}
-                alt="Favorite"
-                className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
-              />
-            </NavLink>
-          </li>
+
+          {userId && (
+            <>
+              <li>
+                <NavLink
+                  to={`/profile/${userId}`}
+                  className={({ isActive }) =>
+                    `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
+                      isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                    }`
+                  }
+                >
+                  <img
+                    src={profile}
+                    alt="Profile"
+                    className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
+                  />
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/favorites"
+                  className={({ isActive }) =>
+                    `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
+                      isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                    }`
+                  }
+                >
+                  <img
+                    src={favorite}
+                    alt="Favorite"
+                    className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
+                  />
+                </NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
 
@@ -110,17 +117,31 @@ const Navbar = ({ children }) => {
             </svg>
           </div>
 
-          <button
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="rounded-lg border-[2px] border-transparent px-[1.2em] py-[0.6em] bg-[#192231] cursor-pointer transition-all duration-250 hover:border-[#5031D6] box-border"
-          >
-            <img
-              src={isDarkMode ? sunIcon : moonIcon}
-              alt="Theme Toggle Icon"
-              className="w-10 h-10"
-            />
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="rounded-lg border-[2px] border-transparent px-[1.2em] py-[0.6em] bg-[#192231] cursor-pointer transition-all duration-250 hover:border-[#5031D6] box-border"
+            >
+              <img
+                src={isDarkMode ? sunIcon : moonIcon}
+                alt="Theme Toggle Icon"
+                className="w-10 h-10"
+              />
+            </button>
+
+            {!userId && (
+              <>
+                <button className="px-4 py-2 rounded-lg bg-[#5031D6] hover:bg-[#6a4ff7] transition-colors">
+                  Login
+                </button>
+                <button className="px-4 py-2 rounded-lg bg-[#192231] hover:bg-[#2a3240] transition-colors border border-[#5031D6]">
+                  Register
+                </button>
+              </>
+            )}
+          </div>
         </div>
+
         <div className="p-6 flex-1">{children}</div>
       </div>
     </div>

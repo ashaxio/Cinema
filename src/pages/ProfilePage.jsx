@@ -1,13 +1,13 @@
 import Navbar from "../components/navbar";
 
-const SearchPage = () => {
+const ProfilePage = () => {
   return (
     <>
       <Navbar userId="123">
-        <h1>Search Page!</h1>
+        <h1>My Profile!</h1>
       </Navbar>
     </>
   );
 };
 
-export default SearchPage;
+export default ProfilePage;
