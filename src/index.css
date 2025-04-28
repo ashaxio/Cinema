@@ -28,6 +28,21 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+   overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5031D6;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 6px;
 }
 
 h1 {
@@ -42,8 +57,5 @@ h1 {
   }
   a:hover {
     color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
