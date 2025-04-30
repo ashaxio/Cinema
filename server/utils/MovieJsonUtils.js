@@ -1,8 +1,18 @@
 import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const filePath = path.join(__dirname, '../../data/FilmsData.json');
 
 export async function getMovies() {
   try {
-    const data = await fs.readFile('../data/FilmsData.json', 'utf-8');
+    console.log(__filename);
+    console.log(__dirname);
+    console.log(filePath);
+
+    const data = await fs.readFile(filePath, 'utf-8');
     const movies = JSON.parse(data);
 
     return movies;
@@ -42,7 +52,7 @@ export async function addRatingToMovie(movieData) {
 
       //Transfer it back to json and save it
       const json = JSON.stringify(movies);
-      fs.writeFile('../data/FilmsData.json', json, 'utf-8');
+      fs.writeFile(filePath, json, 'utf-8');
 
       return true;
     } else {
