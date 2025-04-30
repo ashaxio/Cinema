@@ -37,7 +37,7 @@ const MovieCard = ({ id }) => {
           <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
           <p className="text-sm text-gray-400 mt-1 flex justify-between">
             <span>{year}</span>
-            <span>⭐ {movie.rating}/10</span>
+            <span>⭐ {movie.generalRating ||movie.rating}/10</span>
           </p>
           <p className="text-sm text-gray-300 mt-1">
             {movie.genre.slice(0, 3).join(", ")}
