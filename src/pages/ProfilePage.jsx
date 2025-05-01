@@ -1,9 +1,9 @@
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 const ProfilePage = () => {
   return (
     <>
-      <Navbar userId="123">
+      <Navbar>
         <h1>My Profile!</h1>
       </Navbar>
     </>

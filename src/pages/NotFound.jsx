@@ -1,8 +1,8 @@
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 const NotFound = () => {
   return (
-    <Navbar userId="123">
+    <Navbar>
       <h1>Not Found</h1>
     </Navbar>
   );

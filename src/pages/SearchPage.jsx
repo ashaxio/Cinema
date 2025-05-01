@@ -1,9 +1,9 @@
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 const SearchPage = () => {
   return (
     <>
-      <Navbar userId="123">
+      <Navbar>
         <h1>Search Page!</h1>
       </Navbar>
     </>

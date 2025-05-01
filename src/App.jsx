@@ -9,10 +9,21 @@ import NotFound from "./pages/NotFound";
 import FilmDataProvider from "./FilmDataProvider.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import { AuthProvider } from "./components/AuthContext";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 function App() {
+  useEffect(() => {
+    const toastMessage = sessionStorage.getItem("toastMessage");
+    if (toastMessage) {
+      toast.success(toastMessage);
+      sessionStorage.removeItem("toastMessage");
+    }
+  }, []);
+
   return (
-    <>
+    <AuthProvider>
       <FilmDataProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -20,12 +31,12 @@ function App() {
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/movies" element={<AdminMovies />} />
-          <Route path="/search" element={<SearchPage />}></Route>
-          <Route path="/profile/:userId" element={<ProfilePage />}></Route>
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/profile/:userId" element={<ProfilePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </FilmDataProvider>
-    </>
+    </AuthProvider>
   );
 }
 
