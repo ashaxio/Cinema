@@ -22,7 +22,6 @@ const Navbar = ({ children }) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  // const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -185,9 +184,32 @@ const Navbar = ({ children }) => {
           </div>
         </div>
 
+        {filteredMovies.length > 0 && (
+          <div
+            className="absolute bg-white text-black mt-2 rounded-lg z-10 max-h-60 overflow-auto 
+            top-[70px] left-[149px] w-[350px] rounded-[10px]"
+          >
+            <ul className="list-none p-2">
+              {filteredMovies.map((movie) => (
+                <li
+                  key={movie.id}
+                  className="cursor-pointer py-2 px-4 hover:bg-violet-100 hover:rounded-lg flex items-center"
+                  onClick={() => (window.location.href = `/movies/${movie.id}`)}
+                >
+                  <img
+                    src={movie.poster}
+                    alt={movie.title}
+                    className="w-12 h-12 object-cover inline-block mr-4"
+                  />
+                  <span>{movie.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div className="p-6 flex-1 overflow-auto">{children}</div>
 
-        {/* Logout confirmation modal */}
         {showLogoutModal && (
           <LogoutModal
             onConfirm={() => {
