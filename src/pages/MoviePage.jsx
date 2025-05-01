@@ -3,16 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"; // Added useNavigate for programmatic navigation
 import { FilmDataContext } from "../FilmDataProvider";
 
-const formatMovieRating = (movieRating, userRating) => {
-  let generalMovieRating;
-  if (userRating) {
-    generalMovieRating = (movieRating + userRating) / 2;
-  } else {
-    generalMovieRating = movieRating;
-  }
-  return Math.round(generalMovieRating * 10) / 10;
-};
-
 const MoviePage = () => {
   const navigate = useNavigate(); // useNavigate hook for navigation
   const movieId = useParams().id;
@@ -65,7 +55,7 @@ const MoviePage = () => {
               src={movie.poster}
               alt={`Poster for ${movie.title}`}
             />
-            <p>{`Рейтинг: ${formatMovieRating(movie.rating, movie.userRating)}`}</p>
+            <p>{`Рейтинг: ⭐${movie.generalRating || movie.rating}`}</p>
             <p>{`Дата випуску: ${movie.release_date}`}</p>
             <div>
               <h2>Опис: </h2>

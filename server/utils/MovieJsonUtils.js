@@ -1,8 +1,14 @@
 import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const filePath = path.join(__dirname, '../../data/FilmsData.json');
 
 export async function getMovies() {
   try {
-    const data = await fs.readFile('../data/FilmsData.json', 'utf-8');
+    const data = await fs.readFile(filePath, 'utf-8');
     const movies = JSON.parse(data);
 
     return movies;
@@ -37,12 +43,12 @@ export async function addRatingToMovie(movieData) {
         ];
       }
 
-      //Calculating  user rating of movie
-      movies[movieId].userRating = await getNewMovieRating(movies[movieId]);
+      //Calculating movie rating
+      movies[movieId].generalRating = await getNewMovieRating(movies[movieId]);
 
       //Transfer it back to json and save it
       const json = JSON.stringify(movies);
-      fs.writeFile('../data/FilmsData.json', json, 'utf-8');
+      fs.writeFile(filePath, json, 'utf-8');
 
       return true;
     } else {
@@ -56,9 +62,14 @@ export async function addRatingToMovie(movieData) {
 }
 
 async function getNewMovieRating(movie) {
-  const userRatingsSum = movie.ratings.reduce(
+  let userRatingsSum = movie.ratings.reduce(
     (initValue, rating) => initValue + rating.rating,
     0
   );
-  return userRatingsSum / movie.ratings.length;
+  userRatingsSum += movie.rating;
+  return formatMovieRating(userRatingsSum / (movie.ratings.length + 1));
+}
+
+function formatMovieRating(movieRating) {
+  return Math.round(movieRating * 10) / 10;
 }
