@@ -70,8 +70,10 @@ const LoginModal = ({ onClose, switchToRegister }) => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
 
+      sessionStorage.setItem("token", data.token);
+      login(data.user);
+
       sessionStorage.setItem("toastMessage", "Login successful!");
-      login({ token: data.token, email: form.email });
       handleClose();
 
       setTimeout(() => {

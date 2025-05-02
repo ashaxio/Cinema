@@ -84,7 +84,7 @@ const Navbar = ({ children }) => {
             <>
               <li>
                 <NavLink
-                  to={`/profile/${user.id}`}
+                  to="/profile"
                   className={({ isActive }) =>
                     `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
                       isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"

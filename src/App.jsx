@@ -12,6 +12,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import { AuthProvider } from "./components/AuthContext";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 function App() {
   useEffect(() => {
@@ -28,11 +29,25 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies/:id" element={<MoviePage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/movies" element={<AdminMovies />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/profile/:userId" element={<ProfilePage />} />
+          <Route
+            path="/favorites"
+            element={
+              <ProtectedRoute>
+                <FavoritesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute onlyOwnProfile={true}>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </FilmDataProvider>
