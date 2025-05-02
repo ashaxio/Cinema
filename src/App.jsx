@@ -29,8 +29,22 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies/:id" element={<MoviePage />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/movies" element={<AdminMovies />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/adminMovies"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminMovies />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/search" element={<SearchPage />} />
           <Route
             path="/favorites"

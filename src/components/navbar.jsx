@@ -7,6 +7,8 @@ import search from "../assets/search.svg";
 import profile from "../assets/profile.svg";
 import sunIcon from "../assets/light.svg";
 import moonIcon from "../assets/dark-white.svg";
+import adminDashboardIcon from "../assets/dashboard.svg";
+import adminMoviesIcon from "../assets/adminMovies.svg";
 import { FilmDataContext } from "../FilmDataProvider";
 import { AuthContext } from "./AuthContext";
 import LoginModal from "./LoginModal";
@@ -115,6 +117,44 @@ const Navbar = ({ children }) => {
                   />
                 </NavLink>
               </li>
+
+              {user.role === "admin" && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/admin"
+                      className={({ isActive }) =>
+                        `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
+                          isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                        }`
+                      }
+                    >
+                      <img
+                        src={adminDashboardIcon}
+                        alt="Admin Dashboard"
+                        className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
+                      />
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to="/adminMovies"
+                      className={({ isActive }) =>
+                        `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
+                          isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                        }`
+                      }
+                    >
+                      <img
+                        src={adminMoviesIcon}
+                        alt="Admin Movies"
+                        className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
+                      />
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </>
           )}
         </ul>
