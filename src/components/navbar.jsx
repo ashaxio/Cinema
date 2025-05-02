@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { NavLink } from "react-router-dom"; 
+import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import home from "../assets/home.svg";
 import favorite from "../assets/favorite.svg";
@@ -7,13 +7,23 @@ import search from "../assets/search.svg";
 import profile from "../assets/profile.svg";
 import sunIcon from "../assets/light.svg";
 import moonIcon from "../assets/dark-white.svg";
+import adminDashboardIcon from "../assets/dashboard.svg";
+import adminMoviesIcon from "../assets/adminMovies.svg";
 import { FilmDataContext } from "../FilmDataProvider";
+import { AuthContext } from "./AuthContext";
+import LoginModal from "./LoginModal";
+import RegisterModal from "./RegisterModal";
+import LogoutModal from "./LogoutModal";
 
-const Navbar = ({ userId, children }) => {
+const Navbar = ({ children }) => {
   const { films } = useContext(FilmDataContext);
+  const { user, logout } = useContext(AuthContext);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -72,11 +82,11 @@ const Navbar = ({ userId, children }) => {
             </NavLink>
           </li>
 
-          {userId && (
+          {user && (
             <>
               <li>
                 <NavLink
-                  to={`/profile/${userId}`}
+                  to="/profile"
                   className={({ isActive }) =>
                     `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
                       isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
@@ -107,6 +117,44 @@ const Navbar = ({ userId, children }) => {
                   />
                 </NavLink>
               </li>
+
+              {user.role === "admin" && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/admin"
+                      className={({ isActive }) =>
+                        `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
+                          isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                        }`
+                      }
+                    >
+                      <img
+                        src={adminDashboardIcon}
+                        alt="Admin Dashboard"
+                        className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
+                      />
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to="/adminMovies"
+                      className={({ isActive }) =>
+                        `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
+                          isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                        }`
+                      }
+                    >
+                      <img
+                        src={adminMoviesIcon}
+                        alt="Admin Movies"
+                        className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
+                      />
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </>
           )}
         </ul>
@@ -150,21 +198,34 @@ const Navbar = ({ userId, children }) => {
               />
             </button>
 
-            {!userId && (
+            {!user ? (
               <>
-                <button className="px-4 py-2 rounded-lg bg-[#5031D6] hover:bg-[#6a4ff7] transition-colors">
+                <button
+                  className="min-w-[120px] px-4 py-3 rounded-lg bg-[#5031D6] cursor-pointer hover:bg-[#6a4ff7] transition-colors"
+                  onClick={() => setShowLoginModal(true)}
+                >
                   Login
                 </button>
-                <button className="px-4 py-2 rounded-lg bg-[#192231] hover:bg-[#2a3240] transition-colors border border-[#5031D6]">
+                <button
+                  className="min-w-[120px] px-4 py-3 rounded-lg bg-[#192231] cursor-pointer hover:bg-[#2a3240] transition-colors border border-[#5031D6]"
+                  onClick={() => setShowRegisterModal(true)}
+                >
                   Register
                 </button>
               </>
+            ) : (
+              <button
+                onClick={() => setShowLogoutModal(true)}
+                className="min-w-[120px] px-4 py-3 rounded-lg bg-red-600 cursor-pointer hover:bg-red-700 transition-colors"
+              >
+                Logout
+              </button>
             )}
           </div>
         </div>
 
         {filteredMovies.length > 0 && (
-          <div 
+          <div
             className="absolute bg-white text-black mt-2 rounded-lg z-10 max-h-60 overflow-auto 
             top-[70px] left-[149px] w-[350px] rounded-[10px]"
           >
@@ -173,7 +234,7 @@ const Navbar = ({ userId, children }) => {
                 <li
                   key={movie.id}
                   className="cursor-pointer py-2 px-4 hover:bg-violet-100 hover:rounded-lg flex items-center"
-                  onClick={() => window.location.href = `/movies/${movie.id}`}
+                  onClick={() => (window.location.href = `/movies/${movie.id}`)}
                 >
                   <img
                     src={movie.poster}
@@ -187,7 +248,36 @@ const Navbar = ({ userId, children }) => {
           </div>
         )}
 
-        <div className="p-6 flex-1">{children}</div>
+        <div className="p-6 flex-1 overflow-auto">{children}</div>
+
+        {showLogoutModal && (
+          <LogoutModal
+            onConfirm={() => {
+              logout();
+              setShowLogoutModal(false);
+            }}
+            onCancel={() => setShowLogoutModal(false)}
+          />
+        )}
+
+        {showLoginModal && (
+          <LoginModal
+            onClose={() => setShowLoginModal(false)}
+            switchToRegister={() => {
+              setShowLoginModal(false);
+              setShowRegisterModal(true);
+            }}
+          />
+        )}
+        {showRegisterModal && (
+          <RegisterModal
+            onClose={() => setShowRegisterModal(false)}
+            switchToLogin={() => {
+              setShowRegisterModal(false);
+              setShowLoginModal(true);
+            }}
+          />
+        )}
       </div>
     </div>
   );

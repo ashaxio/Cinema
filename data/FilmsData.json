@@ -48,7 +48,14 @@
         "folder": "minecraft"
       }
     ],
-    "director": { "name": "Джаред Гесс", "photo": "Dzared_Gass.jpg" }
+    "director": { "name": "Джаред Гесс", "photo": "Dzared_Gass.jpg" },
+    "ratings": [
+      { "user": "Guest", "rating": 9 },
+      { "user": "Guest", "rating": 10 },
+      { "user": "Guest", "rating": 9 },
+      { "user": "Guest", "rating": 1 }
+    ],
+    "generalRating": 7.4
   },
   {
     "id": 2,

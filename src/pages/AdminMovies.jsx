@@ -1,7 +1,11 @@
+import Navbar from "../components/navbar";
+
 const AdminMovies = () => {
   return (
     <>
-      <h1>Admin Movies!</h1>
+      <Navbar>
+        <h1>Admin Movies</h1>
+      </Navbar>
     </>
   );
 };
