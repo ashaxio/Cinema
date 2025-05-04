@@ -1,24 +1,19 @@
 import Navbar from "../components/navbar";
 import MovieCard from "../components/MovieCard";
+import HeroBanner from "../components/HeroBanner"; // ⬅️ новий імпорт
 
 const HomePage = () => {
   return (
-    <>
-      <Navbar>
-        <div className="flex flex-wrap justify-between gap-6 p-6">
-          <MovieCard id={1} />
-          <MovieCard id={2} />
-          <MovieCard id={3} />
-          <MovieCard id={4} />
-          <MovieCard id={5} />
-          <MovieCard id={6} />
-          <MovieCard id={7} />
-          <MovieCard id={8} />
-          <MovieCard id={9} />
-          <MovieCard id={10} />
+    <Navbar>
+      <div className="p-6 space-y-10">
+        <HeroBanner />
+        <div className="flex flex-wrap justify-between gap-6">
+          {[...Array(10).keys()].map((i) => (
+            <MovieCard key={i + 1} id={i + 1} />
+          ))}
         </div>
-      </Navbar>
-    </>
+      </div>
+    </Navbar>
   );
 };
 

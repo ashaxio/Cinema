@@ -63,12 +63,18 @@
         "folder": "minecraft"
       }
     ],
-    "director": { "name": "Джаред Гесс", "photo": "Dzared_Gass.jpg" }
+    "director": { "name": "Джаред Гесс", "photo": "Dzared_Gass.jpg" },
+    "ratings": [
+      { "user": "Guest", "rating": 9 },
+      { "user": "Guest", "rating": 10 },
+      { "user": "Guest", "rating": 9 },
+      { "user": "Guest", "rating": 1 }
+    ],
+    "generalRating": 7.4
   },
   {
     "id": 2,
     "title": "Аватар 3: Вогонь і попіл",
-    "movie_type": "Фантастичний фільм",
     "eng_title": "Avatar 3: Fire and Ash",
     "poster": "avatar3.jpg",
     "banner": "avatar-3_banner.jpeg",
@@ -84,12 +90,6 @@
     "age_rating": "12+",
     "duration": "3:12",
     "release_date": "2025-12-15",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$250 000 000",
-    "premiere": "2025-12-01",
-    "studio": ["20th Century Studios", "Lightstorm Entertainment"],
-    "distributor": "Walt Disney Studios Motion Pictures",
     "trailer": "https://www.youtube.com/watch?v=diZaFGEdv20",
     "cast": [
       {
@@ -164,7 +164,6 @@
   {
     "id": 3,
     "title": "Форсаж 10",
-    "movie_type": "Бойовик",
     "eng_title": "Fast X",
     "poster": "Fast_X.jpg",
     "banner": "fast-x_banner.jpeg",
@@ -180,12 +179,6 @@
     "age_rating": "12+",
     "duration": "2:09",
     "release_date": "2023-05-19",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$340 000 000",
-    "premiere": "2023-05-10",
-    "studio": ["Universal Pictures", "Original Film"],
-    "distributor": "Universal Pictures",
     "trailer": "https://youtube.com/watch?v=fast11trailer",
     "cast": [
       {
@@ -302,7 +295,6 @@
   {
     "id": 4,
     "title": "Грішники",
-    "movie_type": "Трилер жахів",
     "eng_title": "Sinners",
     "poster": "opt_56978eef-71f9-48e7-a854-b76db4430a0e.jpg",
     "banner": "sinners_banner.jpg",
@@ -318,12 +310,6 @@
     "age_rating": "16+",
     "duration": "2:17",
     "release_date": "2025-04-17",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$90 000 000",
-    "premiere": "2025-04-01",
-    "studio": ["Warner Bros. Pictures", "Proximity Media"],
-    "distributor": "Warner Bros. Pictures",
     "trailer": "https://www.youtube.com/watch?v=noA-PHYs6fk",
     "cast": [
       {
@@ -380,7 +366,6 @@
   {
     "id": 5,
     "title": "Білосніжка",
-    "movie_type": "Фентезійний мюзикл",
     "eng_title": "Snow White",
     "poster": "Snow_white.jpg",
     "banner": "snow-white_banner.jpg",
@@ -396,12 +381,6 @@
     "age_rating": "0+",
     "duration": "1:49",
     "release_date": "2025-03-20",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$200 000 000",
-    "premiere": "2025-03-10",
-    "studio": ["Walt Disney Pictures", "Marc Platt Productions"],
-    "distributor": "Walt Disney Studios Motion Pictures",
     "trailer": "https://www.youtube.com/watch?v=6eQ1NW58lac",
     "cast": [
       {
@@ -440,7 +419,6 @@
   {
     "id": 6,
     "title": "МІСІЯ НЕМОЖЛИВА: РОЗПЛАТА. ЧАСТИНА ПЕРША",
-    "movie_type": "Бойовик",
     "eng_title": "Mission: Impossible – Dead Reckoning Part One",
     "poster": "mission_impossible.jpg",
     "banner": "mission-impossible_banner.jpeg",
@@ -456,12 +434,6 @@
     "age_rating": "16+",
     "duration": "2:43",
     "release_date": "2025-04-25",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$290 000 000",
-    "premiere": "2025-04-15",
-    "studio": ["Paramount Pictures", "Skydance Media"],
-    "distributor": "Paramount Pictures",
     "trailer": "https://www.youtube.com/watch?v=x2MQK04Ofq4",
     "cast": [
       {
@@ -545,7 +517,6 @@
   {
     "id": 7,
     "title": "Квір",
-    "movie_type": "Біографічна драма",
     "eng_title": "Queer",
     "poster": "Cvir.jpg",
     "banner": "queer_banner.jpeg",
@@ -561,12 +532,6 @@
     "age_rating": "18+",
     "duration": "2:16",
     "release_date": "2025-04-14",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$50 000 000",
-    "premiere": "2025-04-01",
-    "studio": ["Frenesy Film Company", "The Apartment Pictures"],
-    "distributor": "A24",
     "trailer": "https://www.youtube.com/watch?v=GEj1nFeZlIc",
     "cast": [
       {
@@ -593,7 +558,6 @@
   {
     "id": 8,
     "title": "Аматор",
-    "movie_type": "Шпигунський трилер",
     "eng_title": "The Amateur",
     "poster": "Amator.jpg",
     "banner": "amateur_banner.jpeg",
@@ -609,12 +573,6 @@
     "age_rating": "16+",
     "duration": "2:03",
     "release_date": "2025-04-10",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$70 000 000",
-    "premiere": "2025-04-01",
-    "studio": ["20th Century Studios", "Hutch Parker Entertainment"],
-    "distributor": "20th Century Studios",
     "trailer": "https://www.youtube.com/watch?v=71-8CIA9G5U",
     "cast": [
       {
@@ -665,7 +623,6 @@
   {
     "id": 9,
     "title": "Під замком",
-    "movie_type": "Трилер жахів",
     "eng_title": "Locked",
     "poster": "Locked.jpg",
     "banner": "locked_banner.jpeg",
@@ -681,12 +638,6 @@
     "age_rating": "16+",
     "duration": "1:35",
     "release_date": "2025-04-17",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$20 000 000",
-    "premiere": "2025-04-05",
-    "studio": ["Lionsgate", "Thunder Road Pictures"],
-    "distributor": "Lionsgate",
     "trailer": "https://www.youtube.com/watch?v=rXNSCjTKyWg",
     "cast": [
       {
@@ -725,7 +676,6 @@
   {
     "id": 10,
     "title": "Рейс навиліт",
-    "movie_type": "Комедійний бойовик",
     "eng_title": "Fight or Flight",
     "poster": "Fight_or_Flight.jpg",
     "banner": "fight-or-flight_banner.jpg",
@@ -741,12 +691,6 @@
     "age_rating": "18+",
     "duration": "1:41",
     "release_date": "2025-04-17",
-    "display_languages": ["Українська (Озвучення)", "Англійська (Оригінал)"],
-    "subtitle_languages": ["Англійська"],
-    "budget": "$60 000 000",
-    "premiere": "2025-04-05",
-    "studio": ["Sony Pictures", "Point Grey Pictures"],
-    "distributor": "Sony Pictures Releasing",
     "trailer": "https://www.youtube.com/watch?v=paYXai9mckE",
     "cast": [
       {

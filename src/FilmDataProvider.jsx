@@ -35,14 +35,19 @@ const FilmDataProvider = ({ children }) => {
               }
             : null;
 
+          // Додаємо поле для банера
+          const bannerImage = `/images/banners/${film.banner || 'default-banner.jpg'}`;
+
           return {
             ...film,
             poster: `/images/posters/${film.poster}`,
             trailer: processedTrailer,
             cast: processedCast,
             director: processedDirector,
+            banner: bannerImage, // Нове поле для банера
           };
         });
+
         console.log('Array movies:', updatedFilmData);
 
         setFilms(updatedFilmData);
