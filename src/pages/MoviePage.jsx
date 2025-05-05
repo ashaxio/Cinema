@@ -67,7 +67,7 @@ const MoviePage = () => {
       <div className='movie-content -m-6 relative'>
         {/* Buy ticket button */}
         <Link
-          to='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'
+          to='/sessions'
           className='fixed top-[89vh] left-[83vw] flex justify-center items-center gap-x-3 bg-[#CB134A] h-17 w-56 rounded-full hover:cursor-pointer hover:bg-[#9D5F64] transition-all'
         >
           <svg
