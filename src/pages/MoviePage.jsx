@@ -1,9 +1,11 @@
-import '../MoviePageTemp.css';
 import { useContext, useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FilmDataContext } from '../FilmDataProvider';
 import { AuthContext } from '../components/AuthContext';
+import { formatDate } from '../utils/DateUtils';
 import Navbar from '../components/navbar';
+import NotFound from "./NotFound";
+import PersonCard from '../components/PersonCard';
 
 import searchIcon from '../assets/search.svg';
 import calendarIcon from '../assets/calendar.svg';
@@ -11,35 +13,12 @@ import cameraIcon from '../assets/camera.svg';
 import personIcon from '../assets/person.svg';
 import starIcon from '../assets/star.svg';
 
-function formatDate(dateString) {
-  const months = [
-    'січня',
-    'лютого',
-    'березня',
-    'квітня',
-    'травня',
-    'червня',
-    'липня',
-    'серпня',
-    'вересня',
-    'жовтня',
-    'листопада',
-    'грудня',
-  ];
-
-  const [year, month, day] = dateString.split('-');
-  const monthName = months[parseInt(month, 10) - 1];
-  return `${parseInt(day, 10)} ${monthName} ${year}р.`;
-}
-
 const MoviePage = () => {
   const { id: movieId } = useParams();
   const navigate = useNavigate();
   const { films, loading } = useContext(FilmDataContext);
   const [movie, setMovie] = useState(null);
-
   const { user } = useContext(AuthContext);
-
   const sliderRef = useRef();
 
   useEffect(() => {
@@ -47,7 +26,6 @@ const MoviePage = () => {
       (film) => String(film.id) === String(movieId)
     );
     if (foundMovie) setMovie(foundMovie);
-    console.log(user);
   }, [films, movieId]);
 
   const handleAddRating = (formData) => {
@@ -57,7 +35,7 @@ const MoviePage = () => {
     const ratingData = {
       id: movieId,
       user: user.username || "Not specified",
-      rating,
+      rating: rating,
     };
 
     fetch('http://localhost:3000/movies/add-rating', {
@@ -77,9 +55,9 @@ const MoviePage = () => {
     });
   };
 
-  if (loading) return <h1>Loading...</h1>;
-  if (!movie) return <h1>ERROR 404: PAGE NOT FOUND!</h1>;
-
+  if (loading) return <Navbar><h1>Loading...</h1></Navbar>;
+  if (!movie) return <NotFound/>;
+  
   return (
     <Navbar>
       <div className='movie-content -m-6'>
@@ -91,7 +69,7 @@ const MoviePage = () => {
           <div className='w-full min-h-[89.5vh] bg-black/50'>
             <div className='absolute top-15 left-25 flex items-center'>
               <button
-                onClick={() => navigate(-1)}
+                onClick={() => navigate("/")}
                 className='flex justify-center items-center w-13 h-13 mr-3 bg-white/20 hover:bg-white/50 cursor-pointer rounded-full transition-colors'
               >
                 <img src={searchIcon} alt='Search' className='w-5 h-5' />
@@ -99,7 +77,7 @@ const MoviePage = () => {
               <p className='uppercase text-sm font-bold'>{movie.title}</p>
             </div>
 
-            <div className='absolute -bottom-15 w-full p-25 flex justify-between'>
+            <div className='absolute -bottom-15 w-full p-25 flex justify-between flex-col lg:flex-row'>
               <div className='max-w-2xl break-words'>
                 <h1 className='text-xl font-bold mb-2'>{movie.title}</h1>
                 <p className='text-sm font-extralight text-white/70'>
@@ -200,9 +178,9 @@ const MoviePage = () => {
         </div>
 
         {/* Trailer */}
-        <div className='px-36 py-10 h-[433px]'>
+        <div className='px-36 py-10 min-h-[433px]'>
           <div className='flex items-center gap-5'>
-            <h2 className='font-bold text-[40px] mb-5'>Промо фільму</h2>
+            <h2 className='font-bold lg:text-4xl mb-5'>Промо фільму</h2>
             <img src={cameraIcon} alt='Camera icon' className='pb-2' />
           </div>
           <div className='w-96'>
@@ -210,7 +188,7 @@ const MoviePage = () => {
               src={movie.trailer}
               title='Трейлер'
               className='w-96 h-50 object-cover mb-2'
-              allowFullScreen
+              allowFullScreen              
             />
             <p className='font-bold text-lg'>Трейлер</p>
           </div>
@@ -220,7 +198,7 @@ const MoviePage = () => {
         <div className='px-36 py-10 bg-[#1E293B]'>
           <div className='flex items-center justify-between mb-5'>
             <div className='flex items-center gap-5'>
-              <h2 className='font-bold text-[40px]'>
+              <h2 className='font-bold lg:text-4xl'>
                 Знімальна група та акторський склад
               </h2>
               <img src={personIcon} alt='Profile icon' className='w-8' />
@@ -287,7 +265,7 @@ const MoviePage = () => {
         {/* User's movie ratings */}
         <div className='px-36 py-10'>
           <div className='flex items-center gap-2'>
-            <h2 className='font-bold text-[40px]'>Рейтинги користувачів</h2>
+            <h2 className='font-bold lg:text-4xl'>Рейтинги користувачів</h2>
             <img src={starIcon} alt='Star icon' className='w-10 pt-2' />
           </div>
           {/* Sending form */}
@@ -322,7 +300,7 @@ const MoviePage = () => {
             </div>
           ) : (
             <div className='flex justify-center my-5 relative'>
-              <div className='absolute min-w-196 min-h-full z-10 bg-black/30 rounded-lg p-5 flex justify-center items-center text-3xl font-bold'>Авторизуйтеся, щоб мати змогу оцінити фільм.</div>
+              <div className='absolute text-center lg:min-w-196 min-h-full z-10 bg-black/30 rounded-lg p-5 flex justify-center items-center text-3xl font-bold'>Авторизуйтеся, щоб мати змогу оцінити фільм.</div>
               <form                
                 className=' filter blur-md flex flex-col gap-y-5 min-h-50 w-86 bg-[#1E293B] rounded-lg shadow-lg p-5 hover:scale-105 transition-all m-15'
               >
@@ -360,7 +338,7 @@ const MoviePage = () => {
                 </h3>
                 <div className='flex flex-wrap gap-3 px-16'>
                   {movie.ratings.map((rating, i) => (
-                    <div className='flex flex-col gap-y-3 min-h-36 min-w-36 bg-[#1E293B] rounded-lg shadow-lg p-5 hover:scale-105 transition-all'>
+                    <div key={i} className='flex flex-col gap-y-3 min-h-36 min-w-36 bg-[#1E293B] rounded-lg shadow-lg p-5 hover:scale-105 transition-all'>
                       <h4 className='text-xl text-center font-bold mb-2'>
                         {rating.user}
                       </h4>
@@ -375,8 +353,8 @@ const MoviePage = () => {
                 </div>
               </div>
             ) : (
-              <h3 className='text-2xl mb-4 italic'>
-                Рейтинги користувачів відсутні
+              <h3 className='lg:text-2xl mb-4'>
+                Станьте першим, хто оцінить цей фільм.
               </h3>
             )}
           </div>
@@ -386,16 +364,5 @@ const MoviePage = () => {
   );
 };
 
-const PersonCard = ({ name, photo, role }) => (
-  <div className='flex-shrink-0 w-60 bg-gray-800 rounded-lg p-4 text-center'>
-    <img
-      src={photo}
-      alt={name}
-      className='w-full h-60 object-cover rounded mb-3'
-    />
-    <h3 className='text-lg font-semibold'>{name}</h3>
-    <p className='text-sm text-white/70'>{role}</p>
-  </div>
-);
 
 export default MoviePage;
