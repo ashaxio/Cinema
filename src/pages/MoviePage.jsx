@@ -8,6 +8,7 @@ import searchIcon from '../assets/search.svg';
 import calendarIcon from '../assets/calendar.svg';
 import cameraIcon from '../assets/camera.svg';
 import personIcon from '../assets/person.svg';
+import starIcon from '../assets/star.svg';
 
 function formatDate(dateString) {
   const months = [
@@ -277,10 +278,44 @@ const MoviePage = () => {
             ))}
           </div>
         </div>
-
-
-
-
+        
+        
+        {/* User's movie ratings */}
+        <div className='px-36 py-10'>
+          <div className='flex items-center gap-2'>
+            <h2 className='font-bold text-[40px]'>Рейтинги користувачів</h2>
+            <img src={starIcon} alt="Star icon" className='w-10 pt-2' />
+          </div>
+          {/* Sending form */}
+          <div className='flex justify-center my-5'>
+            <form action={handleAddRating} method='post' className='flex flex-col gap-y-5 min-h-50 w-86 bg-[#1E293B] rounded-lg shadow-lg p-5 hover:scale-105 transition-all'>
+              <label htmlFor="rating" className='text-center text-2xl font-bold'>Ваш рейтинг</label>
+              <input type="number" min={0.1} max={10} step={0.1} id='rating' name='rating' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"'/>
+              <button type='submit' className='text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br hover:cursor-pointer focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'>Надіслати</button>
+            </form>
+          </div>
+          <div>
+            {movie.ratings ?
+            (               
+              <div>            
+                <h3 className='font-bold text-2xl mb-4'>Рейтинги користувачів: </h3>
+                <div className='flex flex-wrap gap-3 px-16'>                  
+                  {movie.ratings.map((rating, i) => (
+                    <div className='flex flex-col gap-y-3 min-h-36 min-w-36 bg-[#1E293B] rounded-lg shadow-lg p-5 hover:scale-105 transition-all'>
+                      <h4 className='text-xl text-center font-bold mb-2'>{rating.user}</h4>
+                      <div className='flex justify-center gap-x-1'>
+                        <span className='text-lg text-yellow-500 font-medium'>{rating.rating}/10</span>
+                        <img src={starIcon} alt="Star icon" className='w-6' />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div> 
+            )
+            : <h3 className='text-2xl mb-4 italic'>Рейтинги користувачів відсутні</h3>
+            }
+          </div>
+        </div>
       </div>
     </Navbar>
   );
