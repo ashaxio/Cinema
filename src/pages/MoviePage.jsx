@@ -91,8 +91,8 @@ const MoviePage = () => {
                 {/* Change to real movie sessions */}
                 <p className='font-light text-white/70 mt-1'>
                   {movie.generalRating || movie.rating} IMBD • {movie.year} •{' '}
-                  {movie.generalGenre} • {movie.duration} год • Від{' '}
-                  {movie.ageLimin} років
+                  {movie.movie_type} • {movie.duration} год • Від{' '}
+                  {movie.age_rating} років
                 </p>
                 <div className='mt-3 flex gap-3 justify-end'>
                   <div className='flex justify-center items-center gap-3 bg-white/30 h-10 w-max py-2 px-4 rounded-lg'>
