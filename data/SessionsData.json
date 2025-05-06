@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "movie_id": 6,
+    "hall": 1,
+    "date": "2025-05-06",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": "test TEXT"
+  },
+  {
+    "id": 2,
+    "movie_id": 8,
+    "hall": 2,
+    "date": "2025-05-06",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 3,
+    "movie_id": 2,
+    "hall": 3,
+    "date": "2025-05-06",
+    "time": "15:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 4,
+    "movie_id": 4,
+    "hall": 1,
+    "date": "2025-05-06",
+    "time": "18:00",
+    "price": 190,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 5,
+    "movie_id": 7,
+    "hall": 2,
+    "date": "2025-05-06",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 6,
+    "movie_id": 1,
+    "hall": 3,
+    "date": "2025-05-06",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 7,
+    "movie_id": 10,
+    "hall": 1,
+    "date": "2025-05-06",
+    "time": "15:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 8,
+    "movie_id": 5,
+    "hall": 2,
+    "date": "2025-05-06",
+    "time": "18:00",
+    "price": 190,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 9,
+    "movie_id": 9,
+    "hall": 3,
+    "date": "2025-05-06",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 10,
+    "movie_id": 3,
+    "hall": 1,
+    "date": "2025-05-06",
+    "time": "12:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 11,
+    "movie_id": 5,
+    "hall": 2,
+    "date": "2025-05-06",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 12,
+    "movie_id": 5,
+    "hall": 3,
+    "date": "2025-05-06",
+    "time": "12:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 13,
+    "movie_id": 5,
+    "hall": 1,
+    "date": "2025-05-07",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 14,
+    "movie_id": 1,
+    "hall": 2,
+    "date": "2025-05-07",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 15,
+    "movie_id": 7,
+    "hall": 3,
+    "date": "2025-05-07",
+    "time": "15:00",
+    "price": 180,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 16,
+    "movie_id": 3,
+    "hall": 1,
+    "date": "2025-05-07",
+    "time": "18:00",
+    "price": 180,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 17,
+    "movie_id": 2,
+    "hall": 2,
+    "date": "2025-05-07",
+    "time": "9:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 18,
+    "movie_id": 4,
+    "hall": 3,
+    "date": "2025-05-07",
+    "time": "12:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 19,
+    "movie_id": 9,
+    "hall": 1,
+    "date": "2025-05-07",
+    "time": "15:00",
+    "price": 180,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 20,
+    "movie_id": 10,
+    "hall": 2,
+    "date": "2025-05-07",
+    "time": "18:00",
+    "price": 200,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 21,
+    "movie_id": 8,
+    "hall": 3,
+    "date": "2025-05-07",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 22,
+    "movie_id": 6,
+    "hall": 1,
+    "date": "2025-05-07",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 23,
+    "movie_id": 3,
+    "hall": 2,
+    "date": "2025-05-07",
+    "time": "9:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 24,
+    "movie_id": 6,
+    "hall": 3,
+    "date": "2025-05-07",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 25,
+    "movie_id": 9,
+    "hall": 1,
+    "date": "2025-05-08",
+    "time": "9:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 26,
+    "movie_id": 3,
+    "hall": 2,
+    "date": "2025-05-08",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 27,
+    "movie_id": 2,
+    "hall": 3,
+    "date": "2025-05-08",
+    "time": "15:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 28,
+    "movie_id": 6,
+    "hall": 1,
+    "date": "2025-05-08",
+    "time": "18:00",
+    "price": 180,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 29,
+    "movie_id": 8,
+    "hall": 2,
+    "date": "2025-05-08",
+    "time": "9:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 30,
+    "movie_id": 5,
+    "hall": 3,
+    "date": "2025-05-08",
+    "time": "12:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 31,
+    "movie_id": 4,
+    "hall": 1,
+    "date": "2025-05-08",
+    "time": "15:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 32,
+    "movie_id": 10,
+    "hall": 2,
+    "date": "2025-05-08",
+    "time": "18:00",
+    "price": 190,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 33,
+    "movie_id": 1,
+    "hall": 3,
+    "date": "2025-05-08",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 34,
+    "movie_id": 7,
+    "hall": 1,
+    "date": "2025-05-08",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 35,
+    "movie_id": 7,
+    "hall": 2,
+    "date": "2025-05-08",
+    "time": "9:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 36,
+    "movie_id": 7,
+    "hall": 3,
+    "date": "2025-05-08",
+    "time": "12:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 37,
+    "movie_id": 3,
+    "hall": 1,
+    "date": "2025-05-09",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 38,
+    "movie_id": 2,
+    "hall": 2,
+    "date": "2025-05-09",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 39,
+    "movie_id": 1,
+    "hall": 3,
+    "date": "2025-05-09",
+    "time": "15:00",
+    "price": 180,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 40,
+    "movie_id": 8,
+    "hall": 1,
+    "date": "2025-05-09",
+    "time": "18:00",
+    "price": 200,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 41,
+    "movie_id": 9,
+    "hall": 2,
+    "date": "2025-05-09",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 42,
+    "movie_id": 5,
+    "hall": 3,
+    "date": "2025-05-09",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 43,
+    "movie_id": 10,
+    "hall": 1,
+    "date": "2025-05-09",
+    "time": "15:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 44,
+    "movie_id": 4,
+    "hall": 2,
+    "date": "2025-05-09",
+    "time": "18:00",
+    "price": 190,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 45,
+    "movie_id": 7,
+    "hall": 3,
+    "date": "2025-05-09",
+    "time": "9:00",
+    "price": 150,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 46,
+    "movie_id": 6,
+    "hall": 1,
+    "date": "2025-05-09",
+    "time": "12:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 47,
+    "movie_id": 2,
+    "hall": 2,
+    "date": "2025-05-09",
+    "time": "9:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 48,
+    "movie_id": 5,
+    "hall": 3,
+    "date": "2025-05-09",
+    "time": "12:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 49,
+    "movie_id": 6,
+    "hall": 1,
+    "date": "2025-05-10",
+    "time": "9:00",
+    "price": 160,
+    "is_available": true,
+    "additional_info": ""
+  },
+  {
+    "id": 50,
+    "movie_id": 8,
+    "hall": 2,
+    "date": "2025-05-10",
+    "time": "12:00",
+    "price": 170,
+    "is_available": true,
+    "additional_info": ""
+  }
+]

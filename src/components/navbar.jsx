@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg";
 import home from "../assets/home.svg";
 import favorite from "../assets/favorite.svg";
 import search from "../assets/search.svg";
+import sessions from "../assets/sessions.svg";
 import profile from "../assets/profile.svg";
 import sunIcon from "../assets/light.svg";
 import moonIcon from "../assets/dark-white.svg";
@@ -64,7 +65,6 @@ const Navbar = ({ children }) => {
               />
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/search"
@@ -81,7 +81,23 @@ const Navbar = ({ children }) => {
               />
             </NavLink>
           </li>
-
+          {/*sessions link*/}
+          <li>
+            <NavLink
+              to="/sessions"
+              className={({ isActive }) =>
+                `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
+                  isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                }`
+              }
+            >
+              <img
+                src={sessions}
+                alt="Sessions"
+                className="w-10 h-10 transition-transform duration-250 group-hover:scale-110"
+              />
+            </NavLink>
+          </li>
           {user && (
             <>
               <li>

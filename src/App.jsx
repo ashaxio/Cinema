@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import FilmDataProvider from "./FilmDataProvider.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import SessionsPage from "./pages/SessionsPage.jsx";
 import { AuthProvider } from "./components/AuthContext";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
@@ -27,6 +28,7 @@ function App() {
     <AuthProvider>
       <FilmDataProvider>
         <Routes>
+          <Route path="/sessions" element={<SessionsPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/movies/:id" element={<MoviePage />} />
           <Route
