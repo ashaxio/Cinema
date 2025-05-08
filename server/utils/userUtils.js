@@ -74,3 +74,21 @@ export async function authenticateUser(email, password) {
     },
   };
 }
+
+export async function updateUser(id, newUsername, newPassword) {
+  const users = await getUsers();
+  const userIndex = users.findIndex((u) => u.id === id);
+  if (userIndex === -1) throw new Error("User not found");
+
+  if (newUsername) {
+    users[userIndex].username = newUsername;
+  }
+
+  if (newPassword) {
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    users[userIndex].password = hashedPassword;
+  }
+
+  await saveUsers(users);
+  return users[userIndex];
+}
