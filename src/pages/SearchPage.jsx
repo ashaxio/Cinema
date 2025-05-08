@@ -85,7 +85,7 @@ const SearchPage = () => {
         );
 
       const isRatingMatch =
-        ratingValue === 0 ? true : movie.rating <= ratingValue;
+        ratingValue === 0 ? true : movie.rating == ratingValue;
 
       const movieYear = movie.year || 0;
       const isYearMatch =
@@ -174,7 +174,7 @@ const SearchPage = () => {
           {/* Sidebar */}
           <div className="w-96 bg-gray-800 p-4">
             <div className="flex items-center justify-between mb-6">
-              <div className="text-2xl font-bold">MOVIES</div>
+              <div className="text-2xl font-bold">Фільми</div>
               <div className="cursor-pointer">
                 <svg
                   className="w-6 h-6"
@@ -195,7 +195,7 @@ const SearchPage = () => {
 
             {/* Genre filter */}
             <div className="mb-6">
-              <div className="text-lg font-semibold mb-2">GENRES</div>
+              <div className="text-lg font-semibold mb-2">Жанри</div>
               <div className="space-y-2 max-h-300 overflow-y-auto">
                 {allGenres.map((genre) => (
                   <div
@@ -233,7 +233,7 @@ const SearchPage = () => {
 
             {/* Rating filter */}
             <div className="mb-6">
-              <div className="text-lg font-semibold mb-2">RATING</div>
+              <div className="text-lg font-semibold mb-2">Рейтинг</div>
               <div className="mb-2">IMDB</div>
               <div className="flex items-center">
                 <input
@@ -246,14 +246,14 @@ const SearchPage = () => {
                   className="w-full"
                 />
                 <div className="ml-2">
-                  {ratingValue > 0 ? ratingValue : "Any"}
+                  {ratingValue > 0 ? ratingValue : "Всі"}
                 </div>
               </div>
             </div>
 
             {/* Release year filter */}
             <div className="mb-6" ref={yearDropdownRef}>
-              <div className="text-lg font-semibold mb-2">RELEASE YEAR</div>
+              <div className="text-lg font-semibold mb-2">Рік випуску</div>
               <div className="relative mb-4">
                 <div
                   className="bg-gray-700 p-2 rounded flex items-center justify-between cursor-pointer"
@@ -313,7 +313,7 @@ const SearchPage = () => {
 
                     <div className="relative mt-4">
                       <div className="relative mb-4">
-                        <span className="text-xs block mb-1">Min</span>
+                        <span className="text-xs block mb-1">Від</span>
                         <input
                           type="range"
                           min="1950"
@@ -330,7 +330,7 @@ const SearchPage = () => {
                       </div>
 
                       <div className="relative">
-                        <span className="text-xs block mb-1">Max</span>
+                        <span className="text-xs block mb-1">До</span>
                         <input
                           type="range"
                           min="1950"
@@ -353,7 +353,7 @@ const SearchPage = () => {
 
             {/* Countries filter */}
             <div className="mb-6" ref={countriesDropdownRef}>
-              <div className="text-lg font-semibold mb-2">COUNTRIES</div>
+              <div className="text-lg font-semibold mb-2">Країни</div>
               <div className="relative mb-4">
                 <div
                   className="bg-gray-700 p-2 rounded flex items-center justify-between cursor-pointer"
@@ -363,7 +363,7 @@ const SearchPage = () => {
                 >
                   <input
                     type="text"
-                    placeholder="Filter countries..."
+                    placeholder="Пошук країн..."
                     value={countryFilter}
                     onChange={(e) => {
                       e.stopPropagation();
@@ -435,11 +435,11 @@ const SearchPage = () => {
           {/* Main content area */}
           <div className="flex-1 p-6">
             <div className="flex flex-wrap items-center mb-6 gap-2">
-              <div className="text-2xl font-bold mr-4">MOVIES</div>
+              <div className="text-2xl font-bold mr-4">Фільми</div>
 
               {activeFilters.genres && (
                 <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
-                  <span>Genres:</span>
+                  <span>Жанри:</span>
                   <span className="font-semibold">
                     {selectedGenres.join(", ")}
                   </span>
@@ -449,7 +449,7 @@ const SearchPage = () => {
 
               {activeFilters.rating && (
                 <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
-                  <span>Rating ≤</span>
+                  <span>Рейтинг:</span>
                   <span className="font-semibold">{ratingValue}</span>
                   <button onClick={() => removeFilter("rating")}>×</button>
                 </div>
@@ -457,7 +457,7 @@ const SearchPage = () => {
 
               {activeFilters.releaseYear && (
                 <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
-                  <span>Year:</span>
+                  <span>Рік:</span>
                   <span className="font-semibold">
                     {yearRange.min}–{yearRange.max}
                   </span>
@@ -467,7 +467,7 @@ const SearchPage = () => {
 
               {activeFilters.countries && (
                 <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
-                  <span>Countries:</span>
+                  <span>Країни:</span>
                   <span className="font-semibold">
                     {selectedCountries.join(", ")}
                   </span>
@@ -488,7 +488,7 @@ const SearchPage = () => {
             {filteredMovies.length === 0 && (
               <div className="text-center mt-10">
                 <div className="text-xl">
-                  No movies found matching your filters
+                  Не знайдено фільмів за вашими критеріями
                 </div>
               </div>
             )}
@@ -499,7 +499,7 @@ const SearchPage = () => {
                   className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded"
                   onClick={loadMoreMovies}
                 >
-                  LOAD MORE
+                  Завантажити ще
                 </button>
               </div>
             )}
