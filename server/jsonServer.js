@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { addRatingToMovie, getMovies } from "./utils/MovieJsonUtils.js";
 import { registerUser, authenticateUser } from "./utils/userUtils.js";
+import { updateUser } from "./utils/userUtils.js";
 
 const app = express();
 const port = 3000;
@@ -11,7 +12,6 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//TESTING END POINT
 app.get("/movies", async (req, res) => {
   try {
     const movies = await getMovies();
@@ -61,6 +61,24 @@ app.post("/login", async (req, res) => {
       token,
       user,
     });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.put("/user/update", async (req, res) => {
+  const { id, newUsername, newPassword } = req.body;
+
+  try {
+    const updatedUser = await updateUser(id, newUsername, newPassword);
+    const userForFrontend = {
+      id: updatedUser.id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      role: updatedUser.role,
+    };
+    res.status(200).json({ message: "User updated", user: userForFrontend });
   } catch (error) {
     console.error(error);
     res.status(400).json({ error: error.message });
