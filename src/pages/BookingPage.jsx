@@ -52,7 +52,7 @@ const BookingPage = () => {
 
   return (
     <Navbar>
-      <div className="flex gap-12 p-8 text-white bg-[#242424] min-h-screen">
+      <div className="flex gap-12 p-8 text-white min-h-screen">
         {/* Left Side */}
         <div className="w-1/3">
           <h1 className="text-3xl font-bold mb-6">Бронювання квитків</h1>
@@ -126,7 +126,7 @@ const BookingPage = () => {
 
       {/* Modal (Overlay Box) */}
       {isModalOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 backdrop-blur-sm bg-black/70 flex items-center justify-center z-50">
           <div className="bg-gray-800 text-white p-6 rounded-md w-1/3">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-semibold">
