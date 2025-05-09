@@ -4,6 +4,7 @@ import sessionsData from "../../data/SessionsData.json";
 import moviesData from "../../data/FilmsData.json";
 import Navbar from "../components/navbar";
 import MovieCard from "../components/MovieCard";
+import screen from "../assets/screen.svg";
 
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
@@ -73,7 +74,7 @@ const BookingPage = () => {
         <div className="w-1/3">
           <h2 className="text-2xl font-semibold mb-4">Оберіть місця</h2>
           <div className="bg-gray-800 rounded-lg p-4">
-            <div className="text-center text-gray-400 mb-4">Екран тут ↑</div>
+            <img src={screen} alt="Screen"></img>
             <div className="grid grid-cols-5 gap-x-0 gap-y-5 mb-8 justify-items-center">
               {seats.map((seat) => (
                 <button
