@@ -291,7 +291,9 @@
         "folder": "forsah_X"
       }
     ],
-    "director": { "name": "Луї Летер'є", "photo": "Louis_Leterrier.jpg" }
+    "director": { "name": "Луї Летер'є", "photo": "Louis_Leterrier.jpg" },
+    "ratings": [{ "user": "user", "rating": 10 }],
+    "generalRating": 8.5
   },
   {
     "id": 4,
