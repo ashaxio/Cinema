@@ -94,7 +94,7 @@ const SessionPage = () => {
 
   return (
     <Navbar>
-      <div className="p-8 text-white bg-[#242424] min-h-screen">
+      <div className="p-8 text-white min-h-screen">
         <h1 className="text-3xl font-bold mb-6">Розклад сеансів</h1>
 
         <div className="flex flex-wrap gap-8 mb-8">
