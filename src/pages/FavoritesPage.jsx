@@ -4,7 +4,7 @@ import { AuthContext } from "../components/AuthContext";
 import { FilmDataContext } from "../FilmDataProvider";
 import MovieCard from "../components/MovieCard";
 
-const ProfilePage = () => {
+const FavoritesPage = () => {
   const { user } = useContext(AuthContext);
   const { films } = useContext(FilmDataContext);
 
@@ -38,4 +38,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default FavoritesPage;
