@@ -1,9 +1,12 @@
 import Navbar from "../components/navbar";
 import { useContext } from "react";
 import { AuthContext } from "../components/AuthContext";
+import { FilmDataContext } from "../FilmDataProvider";
+import MovieCard from "../components/MovieCard";
 
-const ProfilePage = () => {
+const FavoritesPage = () => {
   const { user } = useContext(AuthContext);
+  const { films } = useContext(FilmDataContext);
 
   if (!user) {
     return (
@@ -13,28 +16,26 @@ const ProfilePage = () => {
     );
   }
 
-  const username = user.username || "Not specified";
-  const email = user.email || "Not specified";
+  const favoriteIds = user.favoriteMovies || [];
+  const favoriteMovies = films.filter((movie) => favoriteIds.includes(movie.id));
 
   return (
     <Navbar>
-      <div className="text-white p-6 max-w-md mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-center">Favorites Page</h1>
-
-        <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-          <div className="mb-4">
-            <label className="block text-gray-400 text-sm mb-1">Username</label>
-            <div className="text-xl font-medium">{username}</div>
+      <div className="p-6">
+        {/* Улюблені фільми */}
+        <h1 className="text-2xl font-semibold mb-6">Обрані фільми</h1>
+        {favoriteMovies.length === 0 ? (
+          <p className="text-gray-400">У вас ще немає обраних фільмів.</p>
+        ) : (
+          <div className="flex flex-wrap gap-6">
+            {favoriteMovies.map((movie) => (
+              <MovieCard key={movie.id} id={movie.id} />
+            ))}
           </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-400 text-sm mb-1">Email</label>
-            <div className="text-xl font-medium">{email}</div>
-          </div>
-        </div>
+        )}
       </div>
     </Navbar>
   );
 };
 
-export default ProfilePage;
+export default FavoritesPage;

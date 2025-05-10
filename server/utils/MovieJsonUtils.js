@@ -6,15 +6,24 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const filePath = path.join(__dirname, '../../data/FilmsData.json');
 
+export async function saveMovies(movies){
+  try{
+    const json = JSON.stringify(movies, null, 2);
+    await fs.writeFile(filePath, json, "utf-8");
+  }catch(error){
+    console.error(error);
+    throw new Error("Error saving movies data");
+  }
+}
+
 export async function getMovies() {
   try {
     const data = await fs.readFile(filePath, 'utf-8');
     const movies = JSON.parse(data);
-
     return movies;
   } catch (error) {
     console.error(error);
-    throw error;
+    throw new Error("Error reading movies data");
   }
 }
 
@@ -23,41 +32,32 @@ export async function addRatingToMovie(movieData) {
     const movies = await getMovies();
 
     //Finding movie by id
-    const movieId = movies.findIndex(
-      (movie) => movie.id === parseInt(movieData.id)
-    );
+    const movieId = movies.findIndex((movie) => movie.id === parseInt(movieData.id));
 
-    //Check if movie was found
-    if (movieId != -1) {
-      if (Object.hasOwn(movies[movieId], 'ratings')) {
+    if(movieId === -1) throw new Error(`Movie with id ${movieData.id} was not found`);
+
+    if (!Object.hasOwn(movies[movieId], 'ratings')) movies[movieId].ratings = [];
+
+    const existingUserRatingIndex = movies[movieId].ratings.findIndex((r)=> r.userId === movieData.userId)
+
+    if(existingUserRatingIndex === -1){
         movies[movieId].ratings.push({
-          user: movieData.user,
-          rating: movieData.rating,
-        });
-      } else {
-        movies[movieId].ratings = [
-          {
-            user: movieData.user,
-            rating: movieData.rating,
-          },
-        ];
-      }
-
-      //Calculating movie rating
-      movies[movieId].generalRating = await getNewMovieRating(movies[movieId]);
-
-      //Transfer it back to json and save it
-      const json = JSON.stringify(movies);
-      fs.writeFile(filePath, json, 'utf-8');
-
-      return true;
-    } else {
-      console.error(`Movie with id ${movieId} was not found!`);
-      return false; //Movie was not found
+        userId: movieData.userId,
+        user: movieData.username,
+        rating: movieData.rating,
+      });
+    }else{
+      movies[movieId].ratings[existingUserRatingIndex].rating = movieData.rating;
     }
+
+    //Calculating movie rating
+    movies[movieId].generalRating = await getNewMovieRating(movies[movieId]);
+
+    //Transfer it back to json and save it
+    await saveMovies(movies);
   } catch (error) {
     console.error(error);
-    throw error;
+    throw new Error("Error adding rating to movie");
   }
 }
 

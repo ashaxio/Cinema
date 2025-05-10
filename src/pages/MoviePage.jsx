@@ -13,19 +13,28 @@ import calendarIcon from '../assets/calendar.svg';
 import cameraIcon from '../assets/camera.svg';
 import personIcon from '../assets/person.svg';
 import starIcon from '../assets/star.svg';
+import heartOutlinedIcon from "../assets/heart-outlined.svg";
+import heartFilledIcon from "../assets/heart-filled.svg";
 
 const MoviePage = () => {
   const { id: movieId } = useParams();
   const navigate = useNavigate();
   const { films, loading } = useContext(FilmDataContext);
   const [movie, setMovie] = useState(null);
-  const { user } = useContext(AuthContext);
+  
+  const [isFavorite, setFavorite] = useState(false);
+  
+  const { user,login } = useContext(AuthContext);
   const sliderRef = useRef();
 
   useEffect(() => {
-    const foundMovie = films.find((film) => film.id === parseInt(movieId));
-    if (foundMovie) setMovie(foundMovie);
-  }, [films, movieId]);
+    const movieIdInt = parseInt(movieId);
+    const foundMovie = films.find((film) => film.id === movieIdInt);
+    if (foundMovie) {
+      setMovie(foundMovie)
+      if(user && user.favoriteMovies) setFavorite(user.favoriteMovies.includes(movieIdInt));
+    }
+  }, [films, movieId, user]);
 
   const handleAddRating = (formData) => {
     const rating = parseFloat(formData.get('rating'));
@@ -33,7 +42,8 @@ const MoviePage = () => {
 
     const ratingData = {
       id: movieId,
-      user: user.username || 'Not specified',
+      userId: user.id,
+      username: user.username,
       rating: rating,
     };
 
@@ -46,6 +56,18 @@ const MoviePage = () => {
       .catch(console.error);
   };
 
+  const handleAddToFavorites = () => {  
+    const reqData = {userId: user.id, movieId: movieId, isFavorite: isFavorite}
+    fetch("http://localhost:3000/user/addFavorite", {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(reqData)
+    })
+    .then((res) => res.ok && res.json())
+    .then((data) => login(data.user))
+    .catch(console.error);
+  }
+
   const scrollSlider = (direction) => {
     const scrollAmount = 250;
     sliderRef.current?.scrollBy({
@@ -54,12 +76,7 @@ const MoviePage = () => {
     });
   };
 
-  if (loading)
-    return (
-      <Navbar>
-        <h1>Loading...</h1>
-      </Navbar>
-    );
+  if (loading) return (<Navbar><h1>Loading...</h1></Navbar>);
   if (!movie) return <NotFound />;
 
   return (
@@ -68,13 +85,13 @@ const MoviePage = () => {
         {/* Buy ticket button */}
         <Link
           to='/sessions'
-          className='fixed top-[89vh] left-[83vw] flex justify-center items-center gap-x-3 bg-[#CB134A] h-17 w-56 rounded-full hover:cursor-pointer hover:bg-[#9D5F64] transition-all'
+          className='fixed bottom-10 right-25 flex justify-center items-center gap-x-3 bg-[#CB134A] h-17 w-56 rounded-full hover:cursor-pointer hover:bg-[#9D5F64] transition-all'
         >
           <svg
             viewBox='0 0 34 34'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            class='lg:h-8 lg:w-8 w-6 h-6 mt-1'
+            className='lg:h-8 lg:w-8 w-6 h-6 mt-1'
           >
             <path
               d='M22.5166 25.9836L21.051 24.5181C20.2843 23.7513 19.0412 23.7513 18.2744 24.5181C17.5077 25.2848 17.5077 26.5279 18.2744 27.2947L19.74 28.7602L16.5005 31.9997C15.0522 33.448 12.7041 33.448 11.2558 31.9997L9.71324 30.4572C9.55114 30.2951 9.50569 29.9611 9.70297 29.6769C10.1023 29.1017 10.5769 28.2571 10.7214 27.3063C10.8714 26.3201 10.6602 25.2339 9.71324 24.2869C8.76626 23.3399 7.68006 23.1287 6.69381 23.2787C5.74306 23.4233 4.89848 23.8979 4.32325 24.2972C4.03906 24.4945 3.70509 24.449 3.54299 24.2869L2.00043 22.7444C0.552147 21.2961 0.552147 18.9479 2.00043 17.4997L5.23992 14.2602L6.70522 15.7255C7.47196 16.4922 8.71509 16.4922 9.48183 15.7255C10.2486 14.9587 10.2486 13.7156 9.48183 12.9489L8.01653 11.4836L17.426 2.07404C18.8743 0.625755 21.2225 0.625756 22.6707 2.07404L24.2133 3.6166C24.3754 3.7787 24.4209 4.11267 24.2236 4.39686C23.8243 4.97209 23.3497 5.81667 23.2051 6.76742C23.0551 7.75367 23.2663 8.83986 24.2133 9.78685C25.1603 10.7338 26.2465 10.945 27.2327 10.7951C28.1835 10.6505 29.0281 10.1759 29.6033 9.77658C29.8875 9.5793 30.2214 9.62474 30.3836 9.78684L31.9261 11.3294C33.3744 12.7777 33.3744 15.1258 31.9261 16.5741L22.5166 25.9836ZM13.3382 16.8053C12.5715 16.0385 11.3284 16.0385 10.5616 16.8053C9.79488 17.572 9.79488 18.8151 10.5616 19.5819L14.418 23.4383C15.1848 24.205 16.4279 24.205 17.1946 23.4383C17.9614 22.6715 17.9614 21.4284 17.1946 20.6617L13.3382 16.8053Z'
@@ -91,17 +108,28 @@ const MoviePage = () => {
           style={{ backgroundImage: `url(${movie.banner})` }}
         >
           <div className='w-full min-h-[89.5vh] bg-black/50'>
-            <div className='absolute top-15 left-25 flex items-center'>
-              <button
-                onClick={() => navigate('/')}
-                className='flex justify-center items-center w-13 h-13 mr-3 bg-white/20 hover:bg-white/50 cursor-pointer rounded-full transition-colors'
-              >
-                <img src={searchIcon} alt='Search' className='w-5 h-5' />
-              </button>
-              <p className='uppercase text-sm font-bold'>{movie.title}</p>
+            <div className='pt-15 px-25 w-full flex justify-between'>
+              <div className='flex items-center'>
+                <button
+                  onClick={() => navigate('/')}
+                  className='flex justify-center items-center w-13 h-13 mr-3 bg-white/20 hover:bg-white/50 cursor-pointer rounded-full transition-colors'
+                >
+                  <img src={searchIcon} alt='Search' className='w-5 h-5' />
+                </button>
+                <p className='uppercase text-sm font-bold'>{movie.title}</p>
+              </div>
+              { user &&
+              <div className='flex items-center'>
+                <button onClick={handleAddToFavorites} className='flex justify-center items-center w-13 h-13 mr-3 bg-white/20 hover:bg-white/50 cursor-pointer rounded-full transition-colors'>
+                  { !isFavorite ? <img src={heartOutlinedIcon} alt="Favorite Icon" className='w-6 h-6'/>
+                    :<img src={heartFilledIcon} alt='Favorite Icon' className='w-6 h-6'/>
+                  }   
+                </button>                
+              </div>              
+              }
             </div>
 
-            <div className='absolute -bottom-15 w-full p-25 flex justify-between flex-col lg:flex-row'>
+            <div className='absolute bottom-10 w-full px-25 flex justify-between flex-col lg:flex-row'>
               <div className='max-w-2xl break-words'>
                 <h1 className='text-xl font-bold mb-2'>{movie.title}</h1>
                 <p className='text-sm font-extralight text-white/70'>
