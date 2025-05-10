@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { addRatingToMovie, getMovies } from "./utils/MovieJsonUtils.js";
-import { registerUser, authenticateUser } from "./utils/userUtils.js";
+import { registerUser, authenticateUser, toggleFavoriteMovie } from "./utils/userUtils.js";
 import { updateUser } from "./utils/userUtils.js";
 
 const app = express();
@@ -77,11 +77,32 @@ app.put("/user/update", async (req, res) => {
       username: updatedUser.username,
       email: updatedUser.email,
       role: updatedUser.role,
+      favoriteMovies: updatedUser.favoriteMovies
     };
     res.status(200).json({ message: "User updated", user: userForFrontend });
   } catch (error) {
     console.error(error);
     res.status(400).json({ error: error.message });
+  }
+});
+
+app.put("/user/addFavorite", async (req,res) =>{
+  const { userId, movieId, isFavorite } = req.body;
+
+  try{
+    const updatedUser = await toggleFavoriteMovie(userId, parseInt(movieId), isFavorite);
+    const userForFrontend = {
+      id: updatedUser.id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      role: updatedUser.role,
+      favoriteMovies: updatedUser.favoriteMovies
+    };
+
+    res.status(200).json({message:"Movie has been added to favorites.", user: userForFrontend})
+  }catch(error){
+    console.error(error);
+    res.status(400).json({error: error.message});
   }
 });
 

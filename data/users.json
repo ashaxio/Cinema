@@ -5,7 +5,8 @@
     "email": "admin@gmail.com",
     "//password": "Password is 12345678",
     "password": "$2b$10$apo7HQCyBOkfpJxUmDirFOfTftSTuv82oVqG/Y8PaA8rPhimeeLtm",
-    "role": "admin"
+    "role": "admin",
+    "favoriteMovies": []
   },
   {
     "id": 2,
@@ -13,6 +14,19 @@
     "email": "user@gmail.com",
     "//password": "Password is 12345678",
     "password": "$2b$10$apo7HQCyBOkfpJxUmDirFOfTftSTuv82oVqG/Y8PaA8rPhimeeLtm",
-    "role": "user"
+    "role": "user",
+    "favoriteMovies": [
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "username": "User2",
+    "email": "user2@gmail.com",
+    "password": "$2b$10$QGR026sELWMsi/fl/VCEhuxLhrdaJOR4RXqrjyIXtdcn1UD8jk/xy",
+    "role": "user",
+    "favoriteMovies": [
+      8
+    ]
   }
 ]
