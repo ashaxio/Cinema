@@ -42,7 +42,8 @@ const MoviePage = () => {
 
     const ratingData = {
       id: movieId,
-      user: user.username || 'Not specified',
+      userId: user.id,
+      username: user.username,
       rating: rating,
     };
 

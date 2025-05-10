@@ -16,6 +16,8 @@
     "password": "$2b$10$apo7HQCyBOkfpJxUmDirFOfTftSTuv82oVqG/Y8PaA8rPhimeeLtm",
     "role": "user",
     "favoriteMovies": [
+      9,
+      10,
       1
     ]
   },
@@ -25,9 +27,6 @@
     "email": "user2@gmail.com",
     "password": "$2b$10$QGR026sELWMsi/fl/VCEhuxLhrdaJOR4RXqrjyIXtdcn1UD8jk/xy",
     "role": "user",
-    "favoriteMovies": [
-      9,
-      8
-    ]
+    "favoriteMovies": []
   }
 ]

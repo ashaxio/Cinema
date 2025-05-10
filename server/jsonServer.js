@@ -18,21 +18,20 @@ app.get("/movies", async (req, res) => {
     res.status(200).json(movies);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error reading movies data");
+    res.status(500).json({error: error.message});
   }
 });
 
 app.put("/movies/add-rating", async (req, res) => {
   try {
     const movieData = req.body;
-
-    const result = await addRatingToMovie(movieData);
-
-    if (!result) res.sendStatus(404);
-    else res.sendStatus(200);
+    
+    await addRatingToMovie(movieData);
+    
+    res.status(201).json({message: "Rating has been added to movie successfully"});
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error adding rating to the movie");
+    res.status(400).json({erro:error.message});
   }
 });
 
