@@ -85,7 +85,7 @@ const MoviePage = () => {
         {/* Buy ticket button */}
         <Link
           to='/sessions'
-          className='fixed top-[89vh] left-[83vw] flex justify-center items-center gap-x-3 bg-[#CB134A] h-17 w-56 rounded-full hover:cursor-pointer hover:bg-[#9D5F64] transition-all'
+          className='fixed bottom-10 right-25 flex justify-center items-center gap-x-3 bg-[#CB134A] h-17 w-56 rounded-full hover:cursor-pointer hover:bg-[#9D5F64] transition-all'
         >
           <svg
             viewBox='0 0 34 34'
@@ -129,7 +129,7 @@ const MoviePage = () => {
               }
             </div>
 
-            <div className='absolute -bottom-15 w-full p-25 flex justify-between flex-col lg:flex-row'>
+            <div className='absolute bottom-10 w-full px-25 flex justify-between flex-col lg:flex-row'>
               <div className='max-w-2xl break-words'>
                 <h1 className='text-xl font-bold mb-2'>{movie.title}</h1>
                 <p className='text-sm font-extralight text-white/70'>
