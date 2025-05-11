@@ -2,6 +2,7 @@ import Navbar from "../components/navbar";
 import { useState, useEffect, useContext, useRef } from "react";
 import { FilmDataContext } from "../FilmDataProvider";
 import MovieCard from "/src/components/MovieCard.jsx";
+import { useSearchParams } from 'react-router-dom';
 
 const SearchPage = () => {
   const { films } = useContext(FilmDataContext);
@@ -123,6 +124,21 @@ const SearchPage = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+  }, []);
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const genres = searchParams.get('genres')?.split(',') || [];
+    const rating = parseInt(searchParams.get('rating')) || 0;
+    const yearMin = parseInt(searchParams.get('yearMin')) || 1950;
+    const yearMax = parseInt(searchParams.get('yearMax')) || 2025;
+    const countries = searchParams.get('countries')?.split(',') || [];
+  
+    setSelectedGenres(genres);
+    setRatingValue(rating);
+    setYearRange({ min: yearMin, max: yearMax });
+    setSelectedCountries(countries);
   }, []);
 
   const toggleGenre = (genre) => {
