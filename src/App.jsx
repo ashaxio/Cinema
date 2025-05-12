@@ -15,6 +15,7 @@ import { AuthProvider } from "./components/AuthContext";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import { ThemeProvider } from "./components/ThemeContext.jsx";
 
 function App() {
   useEffect(() => {
@@ -26,50 +27,52 @@ function App() {
   }, []);
 
   return (
-    <AuthProvider>
-      <FilmDataProvider>
-        <Routes>
-          <Route path="/sessions" element={<SessionsPage />} />
-          <Route path="/booking/:id" element={<BookingPage />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movies/:id" element={<MoviePage />} />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/adminMovies"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminMovies />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/search" element={<SearchPage />} />
-          <Route
-            path="/favorites"
-            element={
-              <ProtectedRoute>
-                <FavoritesPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute onlyOwnProfile={true}>
-                <ProfilePage />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </FilmDataProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <FilmDataProvider>
+          <Routes>
+            <Route path="/sessions" element={<SessionsPage />} />
+            <Route path="/booking/:id" element={<BookingPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/movies/:id" element={<MoviePage />} />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute adminOnly>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/adminMovies"
+              element={
+                <ProtectedRoute adminOnly>
+                  <AdminMovies />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/search" element={<SearchPage />} />
+            <Route
+              path="/favorites"
+              element={
+                <ProtectedRoute>
+                  <FavoritesPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute onlyOwnProfile={true}>
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </FilmDataProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

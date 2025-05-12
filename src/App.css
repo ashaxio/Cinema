@@ -1,7 +1,38 @@
 @import "tailwindcss";
 
+.dark {
+  --bg-color: #192231;
+  --text-color: #ffffff;
+  --bg-navbar-main: #0f1827;
+  --bg-navbar-second: #192231;
+  --bg-navbar-header: #435571;
+
+  /* --bg-navbar: #0f1827;
+  --bg-navbar-header: #435571;
+  --search-bg: #192231;
+  --search-text: #ffffff;
+  --button-bg: #192231;
+  --button-border: #5031d6;
+  --button-hover: #2a3240; */
+}
+
+.light {
+  --bg-color: #f8fafc; /* Дуже світлий сіро-блакитний (фон сторінки) */
+  --text-color: #1e293b; /* Темно-сірий (майже чорний) для тексту */
+  --bg-navbar-main: #e5e7eb; /* Помітний сірий, але все ще світлий */
+  --bg-navbar-second: #f1f5f9; /* Дуже світлий сіро-блакитний для другорядних елементів */
+  --bg-navbar-header: #a8b8c8; /* Світлий сірий для верхнього блоку */
+  /* --bg-navbar: #f5f5f5;
+  --bg-navbar-header: #d3d3e1;
+  --search-bg: #ffffff;
+  --search-text: #1c1c1c;
+  --button-bg: #e6e6fa;
+  --button-border: #5031d6;
+  --button-hover: #dcdcff; */
+}
+
 html,
 body {
-  background-color: #192231;
-  color: #e1e2e4;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
