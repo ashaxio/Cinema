@@ -5,30 +5,21 @@
   --text-color: #ffffff;
   --bg-navbar-main: #0f1827;
   --bg-navbar-second: #192231;
+  --bg-navbar-third: #364153;
   --bg-navbar-header: #435571;
-
-  /* --bg-navbar: #0f1827;
-  --bg-navbar-header: #435571;
-  --search-bg: #192231;
-  --search-text: #ffffff;
-  --button-bg: #192231;
-  --button-border: #5031d6;
-  --button-hover: #2a3240; */
+  --bg-sidebar-searchPage: #1e2939;
+  --color-accent: #5031d6;
 }
 
 .light {
-  --bg-color: #f8fafc; /* Дуже світлий сіро-блакитний (фон сторінки) */
-  --text-color: #1e293b; /* Темно-сірий (майже чорний) для тексту */
-  --bg-navbar-main: #e5e7eb; /* Помітний сірий, але все ще світлий */
-  --bg-navbar-second: #f1f5f9; /* Дуже світлий сіро-блакитний для другорядних елементів */
-  --bg-navbar-header: #a8b8c8; /* Світлий сірий для верхнього блоку */
-  /* --bg-navbar: #f5f5f5;
-  --bg-navbar-header: #d3d3e1;
-  --search-bg: #ffffff;
-  --search-text: #1c1c1c;
-  --button-bg: #e6e6fa;
-  --button-border: #5031d6;
-  --button-hover: #dcdcff; */
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --bg-navbar-main: #a8b8c8;
+  --bg-navbar-second: #f1f5f9;
+  --bg-navbar-third: #dce6f2;
+  --bg-navbar-header: #e5e7eb;
+  --bg-sidebar-searchPage: #c2ceda;
+  --color-accent: #6c4aff;
 }
 
 html,

@@ -14,7 +14,7 @@ export async function getUsers() {
     return JSON.parse(data);
   } catch (error) {
     console.error(error);
-    throw new Error("Error reading users data");
+    throw new Error("Помилка читання даних користувачів");
   }
 }
 
@@ -24,7 +24,7 @@ export async function saveUsers(users) {
     await fs.writeFile(filePath, json, "utf-8");
   } catch (error) {
     console.error(error);
-    throw new Error("Error saving users data");
+    throw new Error("Помилка збереження даних користувачів");
   }
 }
 
@@ -44,7 +44,7 @@ export async function registerUser(username, email, password) {
     email,
     password: hashedPassword,
     role: "user",
-    favoriteMovies: []
+    favoriteMovies: [],
   };
 
   users.push(newUser);
@@ -56,9 +56,9 @@ export async function registerUser(username, email, password) {
 export async function authenticateUser(email, password) {
   const users = await getUsers();
   const user = users.find((u) => u.email === email);
-  if (!user) throw new Error("Invalid email or password");
+  if (!user) throw new Error("Некоректний email або пароль");
   const isPasswordValid = await bcrypt.compare(password, user.password);
-  if (!isPasswordValid) throw new Error("Invalid email or password");
+  if (!isPasswordValid) throw new Error("Некоректний email або пароль");
 
   const payload = { id: user.id, username: user.username, role: user.role };
   const token = jwt.sign(payload, "q9Jw@R8u#Zm!L2nDf7Vt^Ke3Xp0$sPwA", {
@@ -72,7 +72,7 @@ export async function authenticateUser(email, password) {
       username: user.username,
       email: user.email,
       role: user.role,
-      favoriteMovies: user.favoriteMovies
+      favoriteMovies: user.favoriteMovies,
     },
   };
 }
@@ -80,7 +80,7 @@ export async function authenticateUser(email, password) {
 export async function updateUser(id, newUsername, newPassword) {
   const users = await getUsers();
   const userIndex = users.findIndex((u) => u.id === id);
-  if (userIndex === -1) throw new Error("User not found");
+  if (userIndex === -1) throw new Error("Користувача не знайдено");
 
   if (newUsername) {
     users[userIndex].username = newUsername;
@@ -95,13 +95,15 @@ export async function updateUser(id, newUsername, newPassword) {
   return users[userIndex];
 }
 
-export async function toggleFavoriteMovie(id, movieId, isFavorite){
+export async function toggleFavoriteMovie(id, movieId, isFavorite) {
   const users = await getUsers();
-  const userIndex = users.findIndex((u)=>u.id === id);
-  if(userIndex ===-1) throw new Error("User not found");
+  const userIndex = users.findIndex((u) => u.id === id);
+  if (userIndex === -1) throw new Error("Користувача не знайдено");
 
   if (isFavorite) {
-    users[userIndex].favoriteMovies = users[userIndex].favoriteMovies.filter((mvId) => mvId !== movieId);
+    users[userIndex].favoriteMovies = users[userIndex].favoriteMovies.filter(
+      (mvId) => mvId !== movieId
+    );
   } else {
     users[userIndex].favoriteMovies.push(movieId);
   }

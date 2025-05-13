@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import logoDark from "../assets/logo-dark.svg";
 import home from "../assets/home.svg";
 import homeDark from "../assets/home-dark.svg";
 import favorite from "../assets/favorite.svg";
@@ -63,7 +64,7 @@ const Navbar = ({ children }) => {
           className="w-full h-[100px] flex justify-center items-center"
           style={{ backgroundColor: "var(--bg-navbar-header)" }}
         >
-          <img src={logo} alt="Logo" className="w-15 h-12" />
+          <img src={getIcon(logo, logoDark)} alt="Logo" className="w-15 h-12" />
         </div>
 
         <ul className="flex flex-col items-center">
@@ -72,7 +73,9 @@ const Navbar = ({ children }) => {
               to="/"
               className={({ isActive }) =>
                 `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                  isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                  isActive
+                    ? "bg-[var(--color-accent)]"
+                    : "hover:bg-[var(--color-accent)]"
                 }`
               }
             >
@@ -88,7 +91,9 @@ const Navbar = ({ children }) => {
               to="/search"
               className={({ isActive }) =>
                 `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                  isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                  isActive
+                    ? "bg-[var(--color-accent)]"
+                    : "hover:bg-[var(--color-accent)]"
                 }`
               }
             >
@@ -104,7 +109,9 @@ const Navbar = ({ children }) => {
               to="/sessions"
               className={({ isActive }) =>
                 `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                  isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                  isActive
+                    ? "bg-[var(--color-accent)]"
+                    : "hover:bg-[var(--color-accent)]"
                 }`
               }
             >
@@ -122,7 +129,9 @@ const Navbar = ({ children }) => {
                   to="/profile"
                   className={({ isActive }) =>
                     `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                      isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                      isActive
+                        ? "bg-[var(--color-accent)]"
+                        : "hover:bg-[var(--color-accent)]"
                     }`
                   }
                 >
@@ -139,7 +148,9 @@ const Navbar = ({ children }) => {
                   to="/favorites"
                   className={({ isActive }) =>
                     `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                      isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                      isActive
+                        ? "bg-[var(--color-accent)]"
+                        : "hover:bg-[var(--color-accent)]"
                     }`
                   }
                 >
@@ -158,7 +169,9 @@ const Navbar = ({ children }) => {
                       to="/admin"
                       className={({ isActive }) =>
                         `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                          isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                          isActive
+                            ? "bg-[var(--color-accent)]"
+                            : "hover:bg-[var(--color-accent)]"
                         }`
                       }
                     >
@@ -178,7 +191,9 @@ const Navbar = ({ children }) => {
                       to="/adminMovies"
                       className={({ isActive }) =>
                         `group w-[100px] h-[100px] flex justify-center items-center transition-colors duration-250 ${
-                          isActive ? "bg-[#5031D6]" : "hover:bg-[#5031D6]"
+                          isActive
+                            ? "bg-[var(--color-accent)]"
+                            : "hover:bg-[var(--color-accent)]"
                         }`
                       }
                     >
@@ -205,7 +220,7 @@ const Navbar = ({ children }) => {
             <input
               type="text"
               placeholder="Пошук фільмів..."
-              className="w-full py-2 px-4 pl-10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+              className="w-full py-2 px-4 pl-10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               style={{
                 backgroundColor: "var(--bg-navbar-second)",
                 color: "var(--text-color)",
@@ -232,7 +247,7 @@ const Navbar = ({ children }) => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className="rounded-lg border-[2px] border-transparent px-[1.2em] py-[0.6em] cursor-pointer transition-all duration-250 hover:border-[#5031D6] box-border"
+              className="rounded-lg border-[2px] border-transparent px-[1.2em] py-[0.6em] cursor-pointer transition-all duration-250 hover:border-[var(--color-accent)] box-border"
               style={{
                 backgroundColor: "var(--bg-navbar-second)",
                 color: "var(--text-color)",

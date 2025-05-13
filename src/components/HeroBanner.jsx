@@ -41,11 +41,13 @@ const HeroBanner = () => {
   const duration = currentFilm.duration || "N/A";
 
   return (
-    <div className="relative w-full h-[75vh] overflow-hidden rounded-xl shadow-lg mb-10">
+    <div className="relative w-full h-[75vh] overflow-hidden rounded-xl shadow-lg mb-10 bg-[#192231]">
       {/* Fade container */}
       <div
         key={currentFilm.id}
-        className={`absolute inset-0 transition-opacity duration-700 ${fade ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 transition-opacity duration-700 ${
+          fade ? "opacity-100" : "opacity-0"
+        }`}
       >
         <img
           src={currentFilm.banner}
@@ -57,12 +59,16 @@ const HeroBanner = () => {
         {/* Text content */}
         <div className="absolute left-50 right-50 bottom-22 z-20 text-white text-center">
           <h1 className="text-5xl font-bold mb-2">{currentFilm.title}</h1>
-          <p className="text-lg mb-4">{year} • {genres} • {duration}</p>
+          <p className="text-lg mb-4">
+            {year} • {genres} • {duration}
+          </p>
           <div className="flex justify-center items-center gap-2 mb-4">
             {rating && (
               <>
                 <img src={starIcon} alt="star" className="w-5 h-5" />
-                <span className="text-xl font-bold">{rating}/<span className="text-lg font-semibold">{10}</span></span>
+                <span className="text-xl font-bold">
+                  {rating}/<span className="text-lg font-semibold">{10}</span>
+                </span>
               </>
             )}
           </div>
@@ -83,8 +89,18 @@ const HeroBanner = () => {
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 text-white bg-black/30 hover:bg-[#5031D6] p-3 rounded-full transition"
         onClick={handlePrev}
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
       </button>
 
@@ -92,7 +108,13 @@ const HeroBanner = () => {
         className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 text-white bg-black/30 hover:bg-[#5031D6] p-3 rounded-full transition"
         onClick={handleNext}
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
