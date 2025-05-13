@@ -292,8 +292,8 @@ const Navbar = ({ children }) => {
 
         {filteredMovies.length > 0 && (
           <div
-            className="absolute bg-white text-black mt-2 rounded-lg z-10 max-h-60 overflow-auto 
-            top-[70px] left-[149px] w-[350px] rounded-[10px]"
+            className="absolute bg-white text-black mt-2 rounded-lg z-20 max-h-60 overflow-auto 
+            top-[70px] left-[149px] w-[350px] rounded-[10px] shadow-lg"
           >
             <ul className="list-none p-2">
               {filteredMovies.map((movie) => (
