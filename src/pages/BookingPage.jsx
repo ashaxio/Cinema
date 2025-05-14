@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useTheme } from "../components/ThemeContext";
 import { AuthContext } from "../components/AuthContext";
 import sessionsData from "../../data/SessionsData.json";
@@ -26,6 +26,20 @@ const BookingPage = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [bookingMessage, setBookingMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  useEffect(() => {
+    const bookingSuccess = localStorage.getItem('bookingSuccess');
+    if (bookingSuccess) {
+      const { sessionId, seats } = JSON.parse(bookingSuccess);
+      if (sessionId === Number(id)) {
+        setBookingMessage(`Ваші квитки з місцями: ${seats.join(", ")} успішно заброньовані✅. Гарного перегляду!`);
+        setShowSuccessModal(true);
+        localStorage.removeItem('bookingSuccess');
+      }
+    }
+  }, [id]);
+
 
   if (!session || !movie) {
     return <div className="text-white p-8">Сеанс не знайдено.</div>;
@@ -42,28 +56,33 @@ const BookingPage = () => {
     );
   };
 
-  const handleBooking = (e) => {
-    let bookingMessage;
-    //Server request
-    fetch("http://localhost:3000/user/book-ticket", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({userId: user.id, sessionId: session.id, chosenSeats: selectedSeats})
-    }).then((res) => res.ok && res.json())
-    .then((data) => {
-      login(data.user)
-      bookingMessage = `Ваші квитки з місцями: ${chosenSeats.join(", ")} успішно заброньовані✅. Гарного перегляду!`;
-    })
-    .catch((error) => {
-      console.error(error);
-      bookingMessage = "На жаль, під час бронювання сталася помилка. Будь ласка:\n- Спробуйте ще раз пізніше\n- Перевірте своє інтернет-з'єднання\n- Якщо проблема повториться, зверніться до підтримки";
-    });
+  const handleBooking = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/user/book-ticket", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.id,
+          sessionId: session.id,
+          chosenSeats: selectedSeats
+        })
+      });
 
-    // Set booking message
-    setBookingMessage(bookingMessage);
-    
-    // Open the modal
-    setIsModalOpen(true);
+      if (!response.ok) throw new Error("Помилка бронювання");
+
+      const data = await response.json();
+      login(data.user);
+      
+      localStorage.setItem('bookingSuccess', JSON.stringify({
+        sessionId: session.id,
+        seats: selectedSeats
+      }));
+      sessionStorage.setItem("toastMessage", "Бронювання успішне!")
+
+    } catch (error) {
+      setBookingMessage("Виникла помилка під час бронювання. \nБудь ласка, спробуйте ще раз або зверніться до служби підтримки.");
+      setIsModalOpen(true);
+    }
   };
 
   const closeModal = () => {
@@ -167,7 +186,7 @@ const BookingPage = () => {
                   </div>
                   <button
                     onClick={handleBooking}
-                    className="bg-green-700 hover:bg-green-800 px-4 py-2 rounded text-white font-semibold"
+                    className="bg-green-700 hover:bg-green-800 px-4 py-2 rounded text-white font-semibold hover:cursor-pointer"
                   >
                     Забронювати місця
                   </button>
@@ -184,16 +203,40 @@ const BookingPage = () => {
             <div className="bg-[var(--bg-navbar-main)] text-[var(--text-color)] p-6 rounded-md w-1/3">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-semibold">
-                  Підтвердження бронювання
+                  Помилка бронювання!
                 </h3>
                 <button
                   onClick={closeModal}
-                  className="text-[var(--text-color)] text-2xl"
+                  className="text-[var(--text-color)] text-2xl hover:cursor-pointer"
                 >
                   &times;
                 </button>
               </div>
               <pre>{bookingMessage}</pre>
+            </div>
+          </div>
+        )}
+
+        {/* SuccessModal */}
+        {showSuccessModal && (
+          <div className="fixed inset-0 backdrop-blur-sm bg-black/70 flex items-center justify-center z-50">
+            <div className="bg-[var(--bg-navbar-main)] text-[var(--text-color)] p-6 rounded-md w-1/3">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-semibold">Бронювання успішне!</h3>
+                <button
+                  onClick={() => setShowSuccessModal(false)}
+                  className="text-[var(--text-color)] text-2xl hover:cursor-pointer"
+                >
+                  &times;
+                </button>
+              </div>
+              <div className="whitespace-pre-line">{bookingMessage}</div>
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-white hover:cursor-pointer"
+              >
+                Зрозуміло
+              </button>
             </div>
           </div>
         )}
