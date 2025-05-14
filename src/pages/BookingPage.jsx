@@ -42,11 +42,26 @@ const BookingPage = () => {
     );
   };
 
-  const handleBooking = () => {
+  const handleBooking = (e) => {
+    let bookingMessage;
+    //Server request
+    fetch("http://localhost:3000/user/book-ticket", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({userId: user.id, sessionId: session.id, chosenSeats: selectedSeats})
+    }).then((res) => res.ok && res.json())
+    .then((data) => {
+      login(data.user)
+      bookingMessage = `Ваші квитки з місцями: ${chosenSeats.join(", ")} успішно заброньовані✅. Гарного перегляду!`;
+    })
+    .catch((error) => {
+      console.error(error);
+      bookingMessage = "На жаль, під час бронювання сталася помилка. Будь ласка:\n- Спробуйте ще раз пізніше\n- Перевірте своє інтернет-з'єднання\n- Якщо проблема повториться, зверніться до підтримки";
+    });
+
     // Set booking message
-    setBookingMessage(
-      `Session ID: ${session.id}\nChosen seats: ${selectedSeats.join(", ")}`
-    );
+    setBookingMessage(bookingMessage);
+    
     // Open the modal
     setIsModalOpen(true);
   };
