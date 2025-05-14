@@ -12,6 +12,9 @@
   --input-bg: #364153;
 
   --bg-movie-card: #2f2f2f;
+  --bg-movie-page-main: #1e293b;
+  --bg-movie-page-second: #192231;
+  --bg-metric: #0d141e;
 }
 
 .light {
@@ -26,6 +29,9 @@
   --input-bg: #dce6f2;
 
   --bg-movie-card: #dee6ef;
+  --bg-movie-page-main: #f1f5f9;
+  --bg-movie-page-second: #e2e8f0;
+  --bg-metric: #e1e8f0;
 }
 
 html,
