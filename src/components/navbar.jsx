@@ -252,7 +252,10 @@ const Navbar = ({ children }) => {
                   Вхід
                 </button>
                 <button
-                  className="bg-[var(--bg-navbar-second)] text-[var(--text-color)] min-w-[120px] px-4 py-3 rounded-lg cursor-pointer hover:bg-[#2a3240] transition-colors border border-[#5031D6]"
+                  className={`min-w-[120px] px-4 py-3 rounded-lg bg-[var(--bg-navbar-second)] text-[var(--text-color)] transition-colors
+                    ${
+                      isDarkMode ? "hover:bg-[#2a3240]" : "hover:bg-[#e2e8f0]"
+                    }`}
                   onClick={() => setShowRegisterModal(true)}
                 >
                   Реєстрація
