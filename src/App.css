@@ -9,6 +9,9 @@
   --bg-navbar-header: #435571;
   --bg-sidebar-searchPage: #1e2939;
   --color-accent: #5031d6;
+  --input-bg: #364153;
+
+  --bg-movie-card: #2f2f2f;
 }
 
 .light {
@@ -20,6 +23,9 @@
   --bg-navbar-header: #e5e7eb;
   --bg-sidebar-searchPage: #c2ceda;
   --color-accent: #6c4aff;
+  --input-bg: #dce6f2;
+
+  --bg-movie-card: #dee6ef;
 }
 
 html,

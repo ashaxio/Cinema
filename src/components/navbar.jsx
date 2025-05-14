@@ -56,14 +56,8 @@ const Navbar = ({ children }) => {
 
   return (
     <div className="flex h-screen w-screen">
-      <div
-        className="w-[100px] text-white flex flex-col items-center"
-        style={{ backgroundColor: "var(--bg-navbar-main)" }}
-      >
-        <div
-          className="w-full h-[100px] flex justify-center items-center"
-          style={{ backgroundColor: "var(--bg-navbar-header)" }}
-        >
+      <div className="bg-[var(--bg-navbar-main)] w-[100px] text-white flex flex-col items-center">
+        <div className="bg-[var(--bg-navbar-header)] w-full h-[100px] flex justify-center items-center">
           <img src={getIcon(logo, logoDark)} alt="Logo" className="w-15 h-12" />
         </div>
 
@@ -212,19 +206,12 @@ const Navbar = ({ children }) => {
       </div>
 
       <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
-        <div
-          className="w-full h-25 text-white flex items-center justify-between pl-12 pr-6 sticky top-0 z-10"
-          style={{ backgroundColor: "var(--bg-navbar-main)" }}
-        >
+        <div className="bg-[var(--bg-navbar-main)] w-full h-25 text-white flex items-center justify-between pl-12 pr-6 sticky top-0 z-10">
           <div className="relative w-1/3 max-w-md">
             <input
               type="text"
               placeholder="Пошук фільмів..."
-              className="w-full py-2 px-4 pl-10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-              style={{
-                backgroundColor: "var(--bg-navbar-second)",
-                color: "var(--text-color)",
-              }}
+              className="bg-[var(--bg-navbar-second)] text-[var(--text-color)] w-full py-2 px-4 pl-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               value={searchQuery}
               onChange={handleSearchChange}
             />
@@ -247,11 +234,7 @@ const Navbar = ({ children }) => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className="rounded-lg border-[2px] border-transparent px-[1.2em] py-[0.6em] cursor-pointer transition-all duration-250 hover:border-[var(--color-accent)] box-border"
-              style={{
-                backgroundColor: "var(--bg-navbar-second)",
-                color: "var(--text-color)",
-              }}
+              className="bg-[var(--bg-navbar-second)] text-[var(--text-color)] rounded-lg border-[2px] border-transparent px-[1.2em] py-[0.6em] cursor-pointer transition-all duration-250 hover:border-[var(--color-accent)] box-border"
             >
               <img
                 src={getIcon(sunIcon, moonIcon)}
@@ -269,11 +252,7 @@ const Navbar = ({ children }) => {
                   Вхід
                 </button>
                 <button
-                  className="min-w-[120px] px-4 py-3 rounded-lg cursor-pointer hover:bg-[#2a3240] transition-colors border border-[#5031D6]"
-                  style={{
-                    backgroundColor: "var(--bg-navbar-second)",
-                    color: "var(--text-color)",
-                  }}
+                  className="bg-[var(--bg-navbar-second)] text-[var(--text-color)] min-w-[120px] px-4 py-3 rounded-lg cursor-pointer hover:bg-[#2a3240] transition-colors border border-[#5031D6]"
                   onClick={() => setShowRegisterModal(true)}
                 >
                   Реєстрація

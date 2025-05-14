@@ -74,9 +74,9 @@ const HeroBanner = () => {
           </div>
           <Link
             to={`/movies/${currentFilm.id}`}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#5031D6] text-white font-medium rounded-lg hover:bg-[#6c4aff] transition"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#5031d6] !text-white font-medium rounded-lg hover:bg-[#6c4aff] hover:!text-white transition"
           >
-            Learn More
+            Дізнатися більше
           </Link>
         </div>
       </div>

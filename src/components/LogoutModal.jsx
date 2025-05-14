@@ -1,6 +1,7 @@
-import React from "react";
+import { useTheme } from "./ThemeContext";
 
 const LogoutModal = ({ onConfirm, onCancel }) => {
+  const { isDarkMode } = useTheme();
   return (
     <div
       className="fixed inset-0 backdrop-blur-sm bg-black/70 flex items-center justify-center z-50"
@@ -28,11 +29,8 @@ const LogoutModal = ({ onConfirm, onCancel }) => {
           </button>
           <button
             onClick={onCancel}
-            className="min-w-[120px] px-4 py-2 rounded-lg cursor-pointer hover:bg-[#2a3240] transition-colors"
-            style={{
-              backgroundColor: "var(--bg-navbar-second)",
-              color: "var(--text-color)",
-            }}
+            className={`min-w-[120px] bg-[var(--bg-navbar-second)] text-[var(--text-color)] px-5 py-2 rounded-lg transition-colors
+              ${isDarkMode ? "hover:bg-[#2a3240]" : "hover:bg-[#e2e8f0]"}`}
           >
             Ні
           </button>
