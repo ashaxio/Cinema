@@ -6,7 +6,8 @@
     "//password": "Password is 12345678",
     "password": "$2b$10$apo7HQCyBOkfpJxUmDirFOfTftSTuv82oVqG/Y8PaA8rPhimeeLtm",
     "role": "admin",
-    "favoriteMovies": []
+    "favoriteMovies": [],
+    "tickets": []
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
       9,
       10,
       1
-    ]
+    ],
+    "tickets": []
   },
   {
     "id": 3,
@@ -27,6 +29,17 @@
     "email": "user2@gmail.com",
     "password": "$2b$10$QGR026sELWMsi/fl/VCEhuxLhrdaJOR4RXqrjyIXtdcn1UD8jk/xy",
     "role": "user",
-    "favoriteMovies": []
+    "favoriteMovies": [
+      8
+    ],
+    "tickets": [
+      {
+        "sessionId": 40,
+        "chosenSeats": [
+          7,
+          8
+        ]
+      }
+    ]
   }
 ]

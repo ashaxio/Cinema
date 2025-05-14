@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import path from "path";
 import { fileURLToPath } from "url";
+import { removeSelectedSeatsFromSession } from "./sessionUtils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -45,6 +46,7 @@ export async function registerUser(username, email, password) {
     password: hashedPassword,
     role: "user",
     favoriteMovies: [],
+    tickets: []
   };
 
   users.push(newUser);
@@ -73,6 +75,7 @@ export async function authenticateUser(email, password) {
       email: user.email,
       role: user.role,
       favoriteMovies: user.favoriteMovies,
+      tickets: user.tickets
     },
   };
 }
@@ -110,4 +113,20 @@ export async function toggleFavoriteMovie(id, movieId, isFavorite) {
 
   await saveUsers(users);
   return users[userIndex];
+}
+
+export async function createUserTicket(userId, sessionId, chosenSeats) {
+  const users = await getUsers();
+  const userIndex = users.findIndex((u) => u.id === userId);
+  if(userIndex === -1) throw new Error("Користувача не знайдено");
+
+  users[userIndex].tickets.push(createTicket(sessionId,chosenSeats));
+  await removeSelectedSeatsFromSession(sessionId, chosenSeats);
+
+  await saveUsers(users);
+  return users[userIndex];
+}
+
+function createTicket(sessionId, chosenSeats){
+  return {sessionId: sessionId, chosenSeats: [...chosenSeats]};
 }

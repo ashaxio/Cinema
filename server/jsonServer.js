@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { addRatingToMovie, getMovies } from "./utils/MovieJsonUtils.js";
-import { registerUser, authenticateUser, toggleFavoriteMovie } from "./utils/userUtils.js";
+import { registerUser, authenticateUser, toggleFavoriteMovie, createUserTicket } from "./utils/userUtils.js";
 import { updateUser } from "./utils/userUtils.js";
 
 const app = express();
@@ -76,7 +76,8 @@ app.put("/user/update", async (req, res) => {
       username: updatedUser.username,
       email: updatedUser.email,
       role: updatedUser.role,
-      favoriteMovies: updatedUser.favoriteMovies
+      favoriteMovies: updatedUser.favoriteMovies,
+      tickets: updatedUser.tickets
     };
     res.status(200).json({ message: "User updated", user: userForFrontend });
   } catch (error) {
@@ -95,10 +96,32 @@ app.put("/user/addFavorite", async (req,res) =>{
       username: updatedUser.username,
       email: updatedUser.email,
       role: updatedUser.role,
-      favoriteMovies: updatedUser.favoriteMovies
+      favoriteMovies: updatedUser.favoriteMovies,
+      tickets: updatedUser.tickets
     };
 
     res.status(200).json({message:"Movie has been added to favorites.", user: userForFrontend})
+  }catch(error){
+    console.error(error);
+    res.status(400).json({error: error.message});
+  }
+});
+
+app.post("/user/book-ticket", async (req,res) => {
+  const { userId, sessionId, chosenSeats} = req.body;
+
+  try{
+    const updatedUser = await createUserTicket(userId, sessionId, chosenSeats);
+    const userForFrontend = {
+      id: updatedUser.id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      role: updatedUser.role,
+      favoriteMovies: updatedUser.favoriteMovies,
+      tickets: updatedUser.tickets
+    }
+
+    res.status(200).json({message: "Ticket has been created succesfully.", user: userForFrontend});
   }catch(error){
     console.error(error);
     res.status(400).json({error: error.message});
