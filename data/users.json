@@ -29,7 +29,17 @@
     "email": "user2@gmail.com",
     "password": "$2b$10$QGR026sELWMsi/fl/VCEhuxLhrdaJOR4RXqrjyIXtdcn1UD8jk/xy",
     "role": "user",
-    "favoriteMovies": [],
-    "tickets": []
+    "favoriteMovies": [
+      8
+    ],
+    "tickets": [
+      {
+        "sessionId": 40,
+        "chosenSeats": [
+          7,
+          8
+        ]
+      }
+    ]
   }
 ]
