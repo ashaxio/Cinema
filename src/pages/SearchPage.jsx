@@ -209,7 +209,7 @@ const SearchPage = () => {
                     key={genre}
                     className={`flex items-center justify-between p-2 cursor-pointer rounded ${
                       selectedGenres.includes(genre)
-                        ? "bg-[var(--bg-navbar-third)]"
+                        ? "bg-[var(--input-bg)]"
                         : "hover:bg-gray-700/50"
                     }`}
                     onClick={() => toggleGenre(genre)}
@@ -263,7 +263,7 @@ const SearchPage = () => {
               <div className="text-lg font-semibold mb-2">Рік випуску</div>
               <div className="relative mb-4">
                 <div
-                  className="bg-[var(--bg-navbar-third)] p-2 rounded flex items-center justify-between cursor-pointer"
+                  className="bg-[var(--input-bg)] p-2 rounded flex items-center justify-between cursor-pointer"
                   onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
                 >
                   <div>{`${yearRange.min} - ${yearRange.max}`}</div>
@@ -288,7 +288,7 @@ const SearchPage = () => {
                 </div>
 
                 {isYearDropdownOpen && (
-                  <div className="absolute z-10 w-full bg-[var(--bg-navbar-third)] mt-1 rounded p-4">
+                  <div className="absolute z-10 w-full bg-[var(--input-bg)] mt-1 rounded p-4">
                     <div className="flex justify-between mb-4">
                       <input
                         type="number"
@@ -371,7 +371,7 @@ const SearchPage = () => {
               <div className="text-lg font-semibold mb-2">Країни</div>
               <div className="relative mb-4">
                 <div
-                  className="bg-[var(--bg-navbar-third)] p-2 rounded flex items-center justify-between cursor-pointer"
+                  className="bg-[var(--input-bg)] p-2 rounded flex items-center justify-between cursor-pointer"
                   onClick={() =>
                     setIsCountriesDropdownOpen(!isCountriesDropdownOpen)
                   }
@@ -409,7 +409,7 @@ const SearchPage = () => {
                 </div>
 
                 {isCountriesDropdownOpen && (
-                  <div className="absolute z-10 w-full bg-[var(--bg-navbar-third)] mt-1 rounded max-h-60 overflow-y-auto">
+                  <div className="absolute z-10 w-full bg-[var(--input-bg)] mt-1 rounded max-h-60 overflow-y-auto">
                     {filteredCountries.map((country) => {
                       const isSelected = selectedCountries.includes(country);
                       return (
@@ -439,7 +439,7 @@ const SearchPage = () => {
                 {selectedCountries.map((country) => (
                   <div
                     key={country}
-                    className="bg-[var(--bg-navbar-third)] px-2 py-1 rounded-full text-sm flex items-center"
+                    className="bg-[var(--input-bg)] px-2 py-1 rounded-full text-sm flex items-center"
                   >
                     {country}
                     <span
