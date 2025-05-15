@@ -191,7 +191,7 @@ const SearchPage = () => {
         <div className="flex flex-1">
           {/* Sidebar */}
           <div
-            className="w-96 p-4"
+            className="w-96 p-4 rounded-lg"
             style={{
               backgroundColor: "var(--bg-sidebar-searchPage)",
             }}
