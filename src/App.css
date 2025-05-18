@@ -9,7 +9,9 @@
   --bg-navbar-header: #435571;
   --bg-sidebar-searchPage: #1e2939;
   --color-accent: #5031d6;
+  --hover-color-accent: #6a48ff;
   --input-bg: #364153;
+  --bg-hover-input: #4a5565;
 
   --bg-movie-card: #2f2f2f;
   --bg-movie-page-main: #1e293b;
@@ -26,7 +28,9 @@
   --bg-navbar-header: #e5e7eb;
   --bg-sidebar-searchPage: #c2ceda;
   --color-accent: #6c4aff;
+  --hover-color-accent: #8568ff;
   --input-bg: #dce6f2;
+  --bg-hover-input: #ccd6e3;
 
   --bg-movie-card: #dee6ef;
   --bg-movie-page-main: #f1f5f9;

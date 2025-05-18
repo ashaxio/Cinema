@@ -29,7 +29,7 @@ const LogoutModal = ({ onConfirm, onCancel }) => {
           </button>
           <button
             onClick={onCancel}
-            className={`min-w-[120px] bg-[var(--bg-navbar-second)] text-[var(--text-color)] px-5 py-2 rounded-lg transition-colors
+            className={`cursor-pointer min-w-[120px] bg-[var(--bg-navbar-second)] text-[var(--text-color)] px-5 py-2 rounded-lg transition-colors
               ${isDarkMode ? "hover:bg-[#2a3240]" : "hover:bg-[#e2e8f0]"}`}
           >
             Ні
