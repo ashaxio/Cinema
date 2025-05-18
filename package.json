@@ -10,13 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^6.0.0",
     "@tailwindcss/vite": "^4.1.4",
+    "antd": "^5.25.1",
+    "axios": "^1.9.0",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "cosmoverse": "file:",
     "express": "^5.1.0",
+    "express-fileupload": "^1.5.1",
     "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
