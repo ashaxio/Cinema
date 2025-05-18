@@ -1,9 +1,12 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
+import { useTheme } from "./ThemeContext";
 import closeIcon from "../assets/close.svg";
+import closeIconDark from "../assets/close-dark.svg";
 import toast from "react-hot-toast";
 
 const LoginModal = ({ onClose, switchToRegister }) => {
+  const { isDarkMode } = useTheme();
   const [form, setForm] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({
     email: "",
@@ -38,18 +41,18 @@ const LoginModal = ({ onClose, switchToRegister }) => {
     let isValid = true;
 
     if (!form.email.trim()) {
-      newErrors.email = "Email is required.";
+      newErrors.email = "Email обов'язковий.";
       isValid = false;
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(form.email)) {
-        newErrors.email = "Invalid email format.";
+        newErrors.email = "Некоректний формат email.";
         isValid = false;
       }
     }
 
     if (!form.password.trim()) {
-      newErrors.password = "Password is required.";
+      newErrors.password = "Пароль обов'язковий.";
       isValid = false;
     }
 
@@ -73,7 +76,7 @@ const LoginModal = ({ onClose, switchToRegister }) => {
       sessionStorage.setItem("token", data.token);
       login(data.user);
 
-      sessionStorage.setItem("toastMessage", "Login successful!");
+      sessionStorage.setItem("toastMessage", "Вхід успішно виконано!");
       handleClose();
 
       setTimeout(() => {
@@ -91,10 +94,14 @@ const LoginModal = ({ onClose, switchToRegister }) => {
     >
       <div
         className={`
-          relative bg-[#0f1827] text-white p-8 rounded-2xl w-full max-w-md shadow-lg
+          relative text-white p-8 rounded-2xl w-full max-w-md shadow-lg
           transform transition-all duration-200
           ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}
         `}
+        style={{
+          backgroundColor: "var(--bg-navbar-main)",
+          color: "var(--text-color)",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -102,12 +109,12 @@ const LoginModal = ({ onClose, switchToRegister }) => {
           className="absolute top-4 right-4 cursor-pointer"
         >
           <img
-            src={closeIcon}
+            src={isDarkMode ? closeIcon : closeIconDark}
             alt="Close"
             className="w-6 h-6 hover:scale-110 transition-transform"
           />
         </button>
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Вхід</h2>
 
         {errors.general && (
           <div className="h-6 mb-4">
@@ -121,7 +128,11 @@ const LoginModal = ({ onClose, switchToRegister }) => {
           name="email"
           placeholder="Email"
           onChange={handleChange}
-          className="w-full p-3 mb-1 rounded-lg bg-[#192231] focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          className="w-full p-3 mb-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          style={{
+            backgroundColor: "var(--bg-navbar-second)",
+            color: "var(--text-color)",
+          }}
         />
         <div className="h-6">
           {errors.email && (
@@ -134,9 +145,13 @@ const LoginModal = ({ onClose, switchToRegister }) => {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Пароль"
           onChange={handleChange}
-          className="w-full p-3 mb-1 rounded-lg bg-[#192231] focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          className="w-full p-3 mb-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          style={{
+            backgroundColor: "var(--bg-navbar-second)",
+            color: "var(--text-color)",
+          }}
         />
         <div className="h-6">
           {errors.password && (
@@ -150,11 +165,11 @@ const LoginModal = ({ onClose, switchToRegister }) => {
           onClick={handleLogin}
           className="w-full bg-[#5031D6] cursor-pointer hover:bg-[#6a4ff7] text-white py-3 rounded-lg transition-colors"
         >
-          Login
+          Увійти
         </button>
 
         <p className="mt-4 text-sm text-center">
-          Don’t have an account?{" "}
+          Ще не маєте акаунта?{" "}
           <button
             onClick={() => {
               handleClose();
@@ -162,7 +177,7 @@ const LoginModal = ({ onClose, switchToRegister }) => {
             }}
             className="text-[#5031D6] cursor-pointer hover:underline"
           >
-            Register
+            Реєстрація
           </button>
         </p>
       </div>

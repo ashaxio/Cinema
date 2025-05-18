@@ -1,10 +1,12 @@
 import Navbar from "../components/navbar";
 import { useState, useEffect, useContext, useRef } from "react";
 import { FilmDataContext } from "../FilmDataProvider";
+import { useTheme } from "../components/ThemeContext";
 import MovieCard from "/src/components/MovieCard.jsx";
 import { useSearchParams } from 'react-router-dom';
 
 const SearchPage = () => {
+  const { isDarkMode } = useTheme();
   const { films } = useContext(FilmDataContext);
 
   const allGenres = [
@@ -86,7 +88,7 @@ const SearchPage = () => {
         );
 
       const isRatingMatch =
-        ratingValue === 0 ? true : movie.rating == ratingValue;
+        ratingValue === 0 ? true : movie.rating >= ratingValue;
 
       const movieYear = movie.year || 0;
       const isYearMatch =
@@ -188,14 +190,19 @@ const SearchPage = () => {
       <Navbar>
         <div className="flex flex-1">
           {/* Sidebar */}
-          <div className="w-96 bg-gray-800 p-4">
+          <div
+            className="w-96 p-4 rounded-lg"
+            style={{
+              backgroundColor: "var(--bg-sidebar-searchPage)",
+            }}
+          >
             <div className="flex items-center justify-between mb-6">
               <div className="text-2xl font-bold">Фільми</div>
               <div className="cursor-pointer">
                 <svg
                   className="w-6 h-6"
                   fill="none"
-                  stroke="currentColor"
+                  stroke={isDarkMode ? "#ffffff" : "#1e293b"}
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -218,14 +225,14 @@ const SearchPage = () => {
                     key={genre}
                     className={`flex items-center justify-between p-2 cursor-pointer rounded ${
                       selectedGenres.includes(genre)
-                        ? "bg-gray-700"
+                        ? "bg-[var(--input-bg)]"
                         : "hover:bg-gray-700/50"
                     }`}
                     onClick={() => toggleGenre(genre)}
                   >
                     <div>{genre}</div>
                     {selectedGenres.includes(genre) && (
-                      <div className="text-white">
+                      <div className="text-[var(--text-color)]">
                         <svg
                           className="w-5 h-5"
                           fill="none"
@@ -272,7 +279,7 @@ const SearchPage = () => {
               <div className="text-lg font-semibold mb-2">Рік випуску</div>
               <div className="relative mb-4">
                 <div
-                  className="bg-gray-700 p-2 rounded flex items-center justify-between cursor-pointer"
+                  className="bg-[var(--input-bg)] p-2 rounded flex items-center justify-between cursor-pointer"
                   onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
                 >
                   <div>{`${yearRange.min} - ${yearRange.max}`}</div>
@@ -297,7 +304,7 @@ const SearchPage = () => {
                 </div>
 
                 {isYearDropdownOpen && (
-                  <div className="absolute z-10 w-full bg-gray-700 mt-1 rounded p-4">
+                  <div className="absolute z-10 w-full bg-[var(--input-bg)] mt-1 rounded p-4">
                     <div className="flex justify-between mb-4">
                       <input
                         type="number"
@@ -310,7 +317,11 @@ const SearchPage = () => {
                             min: Math.min(Number(e.target.value), prev.max),
                           }))
                         }
-                        className="bg-gray-600 w-20 p-1 text-center rounded"
+                        className={`w-20 p-1 text-center rounded ${
+                          isDarkMode
+                            ? "bg-gray-600"
+                            : "bg-[var(--bg-sidebar-searchPage)]"
+                        }`}
                       />
                       <input
                         type="number"
@@ -323,7 +334,11 @@ const SearchPage = () => {
                             max: Math.max(Number(e.target.value), prev.min),
                           }))
                         }
-                        className="bg-gray-600 w-20 p-1 text-center rounded"
+                        className={`w-20 p-1 text-center rounded ${
+                          isDarkMode
+                            ? "bg-gray-600"
+                            : "bg-[var(--bg-sidebar-searchPage)]"
+                        }`}
                       />
                     </div>
 
@@ -372,7 +387,7 @@ const SearchPage = () => {
               <div className="text-lg font-semibold mb-2">Країни</div>
               <div className="relative mb-4">
                 <div
-                  className="bg-gray-700 p-2 rounded flex items-center justify-between cursor-pointer"
+                  className="bg-[var(--input-bg)] p-2 rounded flex items-center justify-between cursor-pointer"
                   onClick={() =>
                     setIsCountriesDropdownOpen(!isCountriesDropdownOpen)
                   }
@@ -386,7 +401,7 @@ const SearchPage = () => {
                       setCountryFilter(e.target.value);
                       setIsCountriesDropdownOpen(true);
                     }}
-                    className="bg-transparent w-full placeholder-gray-400 outline-none"
+                    className="bg-transparent w-full placeholder-[var(--text-color)] outline-none"
                     onClick={(e) => e.stopPropagation()}
                   />
                   <div className="w-4 h-4 flex items-center justify-center">
@@ -410,20 +425,27 @@ const SearchPage = () => {
                 </div>
 
                 {isCountriesDropdownOpen && (
-                  <div className="absolute z-10 w-full bg-gray-700 mt-1 rounded max-h-60 overflow-y-auto">
-                    {filteredCountries.map((country) => (
-                      <div
-                        key={country}
-                        className={`p-2 cursor-pointer hover:bg-gray-600 ${
-                          selectedCountries.includes(country)
-                            ? "bg-gray-600"
-                            : ""
-                        }`}
-                        onClick={() => toggleCountry(country)}
-                      >
-                        {country}
-                      </div>
-                    ))}
+                  <div className="absolute z-10 w-full bg-[var(--input-bg)] mt-1 rounded max-h-60 overflow-y-auto">
+                    {filteredCountries.map((country) => {
+                      const isSelected = selectedCountries.includes(country);
+                      return (
+                        <div
+                          key={country}
+                          className={`p-2 cursor-pointer ${
+                            isDarkMode
+                              ? isSelected
+                                ? "bg-gray-600"
+                                : "hover:bg-gray-600"
+                              : isSelected
+                              ? "bg-[#a7b4c4]"
+                              : "hover:bg-[#a7b4c4]"
+                          }`}
+                          onClick={() => toggleCountry(country)}
+                        >
+                          {country}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -433,7 +455,7 @@ const SearchPage = () => {
                 {selectedCountries.map((country) => (
                   <div
                     key={country}
-                    className="bg-gray-700 px-2 py-1 rounded-full text-sm flex items-center"
+                    className="bg-[var(--input-bg)] px-2 py-1 rounded-full text-sm flex items-center"
                   >
                     {country}
                     <span
@@ -454,7 +476,7 @@ const SearchPage = () => {
               <div className="text-2xl font-bold mr-4">Фільми</div>
 
               {activeFilters.genres && (
-                <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
+                <div className="bg-[var(--bg-navbar-third)] rounded-full px-3 py-1 flex items-center space-x-2">
                   <span>Жанри:</span>
                   <span className="font-semibold">
                     {selectedGenres.join(", ")}
@@ -464,15 +486,15 @@ const SearchPage = () => {
               )}
 
               {activeFilters.rating && (
-                <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
-                  <span>Рейтинг:</span>
+                <div className="bg-[var(--bg-navbar-third)] rounded-full px-3 py-1 flex items-center space-x-2">
+                  <span>Рейтинг ≥</span>
                   <span className="font-semibold">{ratingValue}</span>
                   <button onClick={() => removeFilter("rating")}>×</button>
                 </div>
               )}
 
               {activeFilters.releaseYear && (
-                <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
+                <div className="bg-[var(--bg-navbar-third)] rounded-full px-3 py-1 flex items-center space-x-2">
                   <span>Рік:</span>
                   <span className="font-semibold">
                     {yearRange.min}–{yearRange.max}
@@ -482,7 +504,7 @@ const SearchPage = () => {
               )}
 
               {activeFilters.countries && (
-                <div className="bg-gray-700 rounded-full px-3 py-1 flex items-center space-x-2">
+                <div className="bg-[var(--bg-navbar-third)] rounded-full px-3 py-1 flex items-center space-x-2">
                   <span>Країни:</span>
                   <span className="font-semibold">
                     {selectedCountries.join(", ")}
@@ -512,7 +534,9 @@ const SearchPage = () => {
             {hasMoreMovies && (
               <div className="mt-6 flex justify-center">
                 <button
-                  className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded"
+                  className={`bg-[var(--bg-navbar-third)] text-[var(--text-color)] py-2 px-4 rounded ${
+                    isDarkMode ? "hover:bg-gray-600" : "hover:bg-[#7c8896]"
+                  }`}
                   onClick={loadMoreMovies}
                 >
                   Завантажити ще

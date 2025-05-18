@@ -1,7 +1,41 @@
 @import "tailwindcss";
 
+.dark {
+  --bg-color: #192231;
+  --text-color: #ffffff;
+  --bg-navbar-main: #0f1827;
+  --bg-navbar-second: #192231;
+  --bg-navbar-third: #364153;
+  --bg-navbar-header: #435571;
+  --bg-sidebar-searchPage: #1e2939;
+  --color-accent: #5031d6;
+  --input-bg: #364153;
+
+  --bg-movie-card: #2f2f2f;
+  --bg-movie-page-main: #1e293b;
+  --bg-movie-page-second: #192231;
+  --bg-metric: #0d141e;
+}
+
+.light {
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --bg-navbar-main: #a8b8c8;
+  --bg-navbar-second: #f1f5f9;
+  --bg-navbar-third: #dce6f2;
+  --bg-navbar-header: #e5e7eb;
+  --bg-sidebar-searchPage: #c2ceda;
+  --color-accent: #6c4aff;
+  --input-bg: #dce6f2;
+
+  --bg-movie-card: #dee6ef;
+  --bg-movie-page-main: #f1f5f9;
+  --bg-movie-page-second: #e2e8f0;
+  --bg-metric: #e1e8f0;
+}
+
 html,
 body {
-  background-color: #192231;
-  color: #e1e2e4;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }

@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "./ThemeContext";
 import closeIcon from "../assets/close.svg";
+import closeIconDark from "../assets/close-dark.svg";
 import toast from "react-hot-toast";
 
 const RegisterModal = ({ onClose, switchToLogin }) => {
+  const { isDarkMode } = useTheme();
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [errors, setErrors] = useState({
     username: "",
@@ -30,24 +33,24 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
     let isValid = true;
 
     if (!form.username.trim()) {
-      newErrors.username = "Username is required.";
+      newErrors.username = "Ім'я користувача обов'язкове.";
       isValid = false;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!form.email.trim()) {
-      newErrors.email = "Email is required.";
+      newErrors.email = "Email обов'язковий.";
       isValid = false;
     } else if (!emailRegex.test(form.email)) {
-      newErrors.email = "Invalid email format.";
+      newErrors.email = "Некоректний формат email.";
       isValid = false;
     }
 
     if (!form.password.trim()) {
-      newErrors.password = "Password is required.";
+      newErrors.password = "Пароль обов'язковий.";
       isValid = false;
     } else if (form.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters.";
+      newErrors.password = "Пароль має бути з щонайменше 6 символів";
       isValid = false;
     }
 
@@ -68,7 +71,7 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
 
-      sessionStorage.setItem("toastMessage", "Registration successful!");
+      sessionStorage.setItem("toastMessage", "Реєстрація успішна!");
       window.location.reload();
     } catch (err) {
       toast.error(err.message);
@@ -86,6 +89,10 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
           transform transition-all duration-200
           ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}
         `}
+        style={{
+          backgroundColor: "var(--bg-navbar-main)",
+          color: "var(--text-color)",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -93,18 +100,22 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
           className="absolute cursor-pointer top-4 right-4"
         >
           <img
-            src={closeIcon}
+            src={isDarkMode ? closeIcon : closeIconDark}
             alt="Close"
             className="w-6 h-6 hover:scale-110 transition-transform"
           />
         </button>
-        <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Реєстрація</h2>
 
         <input
           name="username"
-          placeholder="Username"
+          placeholder="Ім'я користувача"
           onChange={handleChange}
-          className="w-full p-3 mb-1 rounded-lg bg-[#192231] focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          className="w-full p-3 mb-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          style={{
+            backgroundColor: "var(--bg-navbar-second)",
+            color: "var(--text-color)",
+          }}
         />
         <div className={`h-6`}>
           {errors.username && (
@@ -118,7 +129,11 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
           name="email"
           placeholder="Email"
           onChange={handleChange}
-          className="w-full p-3 mb-1 rounded-lg bg-[#192231] focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          className="w-full p-3 mb-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          style={{
+            backgroundColor: "var(--bg-navbar-second)",
+            color: "var(--text-color)",
+          }}
         />
         <div className={`h-6`}>
           {errors.email && (
@@ -131,9 +146,13 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Пароль"
           onChange={handleChange}
-          className="w-full p-3 mb-1 rounded-lg bg-[#192231] focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          className="w-full p-3 mb-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5031D6]"
+          style={{
+            backgroundColor: "var(--bg-navbar-second)",
+            color: "var(--text-color)",
+          }}
         />
         <div className={`h-6`}>
           {errors.password && (
@@ -147,11 +166,11 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
           onClick={handleRegister}
           className="w-full bg-[#5031D6] cursor-pointer hover:bg-[#6a4ff7] text-white py-3 rounded-lg transition-colors"
         >
-          Register
+          Зареєструватись
         </button>
 
         <p className="mt-4 text-sm text-center">
-          Already have an account?{" "}
+          Вже маєте акаунт?{" "}
           <button
             onClick={() => {
               handleClose();
@@ -159,7 +178,7 @@ const RegisterModal = ({ onClose, switchToLogin }) => {
             }}
             className="text-[#5031D6] cursor-pointer hover:underline"
           >
-            Login
+            Увійти
           </button>
         </p>
       </div>
